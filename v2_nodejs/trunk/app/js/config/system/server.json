@@ -1,0 +1,44 @@
+{
+	"name":"Server System",
+	
+	"system_uid":1000,
+	"system_gid":1002,
+	
+	"drives":{
+		
+		"root":"/home/webkit/sites/quarrycore",
+		
+		"resource":"root:/trunk/resources",
+		
+		"crusher":"root:/crusher",
+		
+		"system":"root:/trunk/app/js",
+		"installation":"root:/installations",
+		"quarrysite":"root:/trunk/websites",
+		
+		"core":"root:/filestore/core",
+		"author":"root:/filestore/author",
+		"user":"root:/filestore/user"
+		
+	},
+	
+	"database":{
+	
+		"activeDriver":"mysql",
+	
+		"mysql":{
+	
+			"host":"localhost",
+			"port":3306,
+			"username":"jquarry",
+			"password":"jquarry",
+			"database":"jquarry",
+			"concurrent_queries":100,
+			"pool":{
+				"maxConnections": 5,
+				"maxIdleTime": 30
+			}
+		
+		}
+	}
+}

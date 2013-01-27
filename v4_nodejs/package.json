@@ -1,0 +1,35 @@
+{
+  "name": "quarry.io",
+  "version": "0.0.2",
+  "description": "quarry.io database system",
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/binocarlos/quarry.io.git"
+  },
+  "keywords": [
+    "database"
+  ],
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {
+    "async": "0.1.22",
+    "underscore": "1.3.3",
+    "forever": "1.1.0",
+    "commander": "1.0.4",
+    "colors": "0.6.0-1",
+    "amdefine": "0.0.2",
+    "passport": "~0.1.12",
+    "passport-facebook": "~0.1.4",
+    "passport-twitter": "~0.1.4",
+    "ejs-locals": "~0.2.5",
+    "connect-redis": "~1.4.4",
+    "cookie": "0.0.4",
+    "cabinet": "~0.1.3",
+    "findit": "~0.1.2",
+    "wrench": "~1.3.9"
+  },
+  "author": "Kai Davenport",
+  "license": "GNU"
+}

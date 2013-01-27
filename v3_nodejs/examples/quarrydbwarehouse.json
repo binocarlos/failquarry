@@ -1,0 +1,30 @@
+[
+    {
+        "_meta": {
+            "id": null,
+            "quarryid": "1a851ba7-d8db-7d3d-37e2-0f680b8a8347",
+            "tag": "folder",
+            "classNames": {}
+        },
+        "name": "Database Based",
+        "_children": [
+            {
+                "_meta": {
+                    "id": null,
+                    "quarryid": "5110267c-03ea-48b6-159d-1d53297df713",
+                    "tag": "supplier",
+                    "classNames": {
+                        "quarrydb":true
+                    },
+                    "supplier": "quarrydb"
+                },
+                "name": "Bobs QuarryDB",
+                "database": "quarrydb",
+                "host": "127.0.0.1",
+                "port":27017,
+                "collection":"bob",
+                "_children": []
+            }
+        ]
+    }
+]

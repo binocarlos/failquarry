@@ -1,0 +1,35 @@
+<%
+	var page = page.get();
+	
+	if(page && page.menu) {
+		var leftMenuParts = [];
+		var rightMenuParts = [];
+	
+		for(var i in page.menu) {
+			var menuItem = page.menu[i];
+			
+			var chunk = '<li' + (menuItem.active ? ' class="active"' : '') + '><a href="' + menuItem.link + '">' + menuItem.title + '</a></li>';
+			
+			if(menuItem.side=='right') {
+				rightMenuParts.push(chunk);
+			} else {
+				leftMenuParts.push(chunk);
+			}
+		}
+		
+		var leftMenu = '';
+		var rightMenu = '';
+		
+		if(leftMenuParts.length>0) {
+			leftMenu = '<ul class="nav">' + leftMenuParts.join('') + '</ul>';
+		}
+		
+		if(rightMenuParts.length>0) {
+			rightMenu = '<ul class="nav" style="float:right;">' + rightMenuParts.join('') + '</ul>';
+		}
+	}
+	
+%>
+
+<%- leftMenu %>
+<%- rightMenu %>

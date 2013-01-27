@@ -1,0 +1,483 @@
+*Main Players*
+
+Main bits in the quarry:
+
+**Element**
+One item/node/object/entity of data - this will have at least (if nothing else) a 'type' - this will default to 'element'.
+
+You dig for elements in a quarry - elements come in all different flavours.
+
+Elements use blueprints which tell them how to behave and what fields are what.
+
+Elements can exist without a blueprint but then you basically just have an object:
+
+	$quarry({
+	
+		name:'simple',
+		height:100
+	
+	}).attr('name', 'hello');
+	
+We just made a new element (type is 'element') and then updated it's attribute.
+
+**Blueprint**
+A description of how an element should behave.
+
+An element can have data without a blueprint but the blueprint can inform what the data means.
+
+E.g. element.price = 12.5 is just a number without a blueprint
+
+but with a blueprint that says price is a money field - it becomes
+
+element.price = œ12.50 (psudo obviously)
+
+A blueprint can also describe how the structure of elements can be formed (like this can or can't be added to this or that)
+
+Lastly - blueprints describe class structures so one blueprint can inherit another
+
+Then you can ask for things in a more generic sense (i.e. product.price<100 rather than chairs.price<100 and stools.price<100)
+
+**Attributes**
+Attributes are the values within an element - so thing.height = 100
+
+attributes can be 1 of 3 base types:
+
+	* object
+	* field
+	* list
+	
+An object always contains fields (obj.field1 - obj.field2)
+
+A field is a flat value
+
+a list is an array of values
+
+By extending these 3 base classes each attribute has it's genetic behaviour imprinted
+
+**Meta Data**
+Every element has got a meta data object - this will contain any system information (such as selector data, tree location, whatever)
+
+The meta data is what the system works with - the element data is what the quarry programmer works with (although they will work with meta data
+too)
+
+key meta data fields:
+
+	* type - folder, product, thing
+	* class - the list of classnames applied (.onsale)
+	* id - the identifier (#gallery1)
+	* quarryid - the system identifier (33443429)
+	* links - the array of places this element appears in the world
+	* driverconfig - the configuration used by the associated driver attached to this element
+	
+**Driver**
+A driver is attached to each element that is created by a supplier.
+
+The driver will create an entry in the meta data to keep any data it will need to save the element back to the supplier.
+
+Anything that is not in the driverconfig MUST be generic across the quarry - no specific Mongo tree encodings (these live in the links)
+or database ids (you must always use the generic quarry level info)
+
+**Drive**
+A drive is the combination of a type of driver and an actual location for it to point to.
+
+So for instance:
+
+authors:/
+
+is shorthand for filesystem:authors:/
+
+filesystem is the driver
+
+authors is the location
+
+This lets us create several drives using the same driver (i.e. one customer can have several mongoDBs each with a different drive prefix
+and they can then choose which one to grab data from).
+
+**Link**
+A link represents an instance of one particular element appearing in the context of some other elements
+	
+A link is basically how an element is 'placed' in the world - it can mean one element belongs to another as
+a child - or that one element is an attribute of another.
+
+Indeed - a link can be generic enough to represent 'any' relationship between an element and the greater world.
+
+multiple links for one element means multiple presence in the world	for the SAME element (this is ghosting)
+	
+Some things a link needs to look after on behalf of a node (these are all optional - it depends on what type of link it is)
+
+	* TARGET - what other element / external resource / thing is this link is pointing to
+	
+	* TREE LOCATION - where in the world does this element appear - you can ask a tree location for descendents or ancestors
+	(this can be materizalized path, nested set or rational nested set)
+		
+	* CONTEXT - the context in which this element relates to its target (child, attribute, instruction, event listener, config etc)
+
+	the target can be null - that means the element belongs in the root of the drive offered up by the supplier
+	
+The link plays 2 crucial roles
+
+	* to allow tree location queries (i.e. what lives inside of this) to match the element
+	
+	* to provide information to the container how this element relates to others
+
+**Children**
+The elements can contain other elements as children.  Each element can have as many children collections as it wants.
+There is a default colletion (called 'children') so if you don't specify what collection - this will be used
+
+	parent.append(child); // the child will be added to the 'children' collection of the parent
+	
+	parent.append(child, 'french'); // the child will be added to the 'french' collection of the parent
+	
+When you ask for children for an element - you can give it a collection speficially or you can leave the element to decide which collection(s) to return
+
+In some cases - the application might support several children collections being returned for an element (such as a graph application)
+
+When an element decides which children collection to use - there is the opportunity to apply some logic
+
+	(e.g. if it is after 10 in the evening then use this collection otherwise use that one)
+
+**Contract**
+A request for some elements that are to be delivered in a container back to the client.
+
+An contract represents any request that the warehouse must fulfill by sending it off to a supplier.
+
+This can be 'please get me this data' or 'please can you save that data'
+
+A contract will contain all the information the supplier will need to work with.
+
+A contract is attached to a container before the container is sent to a supplier.
+
+**Warehouse**
+Will recieve contracts through the front door.  For every contract, it will create a blank container and pin the contract info onto it.
+
+It will then route the container to the correct supplier so it can fill it with elements.
+
+When the container comes back from the supplier (filled with elements) - the warehouse will send the container to the client.
+
+How the warehouse decides which supplier should fulfill the contract is up to the warehouse and it will analyse the contract before choosing
+(note - global configs can also affect this routihg decision)
+
+**Container**
+A holding space with a contract pinned to it that is sent off to suppliers who will end up filling the container with the elements
+to fulfill the contract.
+
+The container is the root quarry element - it is the chaining object that will be the most public API component.
+
+Therefore - whenever you use a container - it will be generating smaller containers that contain the elements that you asked from the
+bigger container (just like a body jquery element is the big container and div.someclass will produce a smaller container with just those divs)
+
+NOTE - a container is not a complete DOM jQuery style - it will ONLY contain the elements that you ordered from the supplier within the one container
+
+It is up to you to make sure that the right elements are in your container before you expect to find things within using selectors within it (otherwise
+we would have to ensure the whole sub-tree is loaded on each request and then it is just silly)
+
+The container is responsible for allowing access to the elements that result from a contract (things like what children does this 
+element have and wot not).
+
+Sometimes - attributes of elements or children of elements (so primitives and elements) might be other contracts rather than actual values or elements.
+
+This is how you link amoungst data without ghosting.
+
+A contract can be represented by an element (in fact it's a special type of element) - so you can create a contract in your code,
+or you can save a contract as a json file - or you can save a contract in the quarrydb.
+
+Every time you access elements within a container (even if it's a single element) - a new container with these elements inside will be returned - 
+always async promise style
+
+If what you access within a container turns out to be a contract - that contract is fulfilled and the container that is returned will end up being filled 
+by elements from the contract rather than a container copying out it's existing elements into a new container (as is the case with an in-memory selector)
+
+**Portal**
+A hole in a container that is a connection back to the warehouse
+
+When the warehouse gets a container (lets say container A) back from a supplier - it will analyse the contract
+that is pinned on it
+
+If the contract contains any kind of portal instructions - the warehouse will create a portal and attach one end to
+the container and connect the other end to the Warehouse Switchboard
+
+If there are no portal instructions - the container is sent as-is (with the understanding that the moment it 
+leaves the warehouse it's out of date - but the client knows this because they didn't ask for a portal in
+their contract)
+
+A few situations arise:
+
+1) a container out in the world with no portal
+
+This 'past sell by date' container is being used by an app somewhere.  We still want to allow elements to be saved and sent to their 
+originating suppliers for updates.
+
+When an app wants to update an element from a sellbydate container - it will create a temporary portal back to the switchboard that will only last
+for the duration of this update request.
+
+The warehouse switchboard (which is connected to the other end of the temporary portal) will get a container that contains the updated elements
+and has the update contract pinned to the side
+
+The warehouse will then route the container off to the supplier it came from (if the container has several elements from different suppliers
+then they will be split into one container per supplier and all sent in parallel
+
+Once the containers have been returned from the suppliers (having been inserted into their inventory) - there are 2 outcomes
+
+a) the supplier has confirmed that the element has been updated
+
+b) the supplier says that the element being updated has grown out of sync and needs merging (this could trigger an element diff)
+
+b) will only happen when the portal is temporary (i.e. pages where it's sort of view flat data and then update it later - not live portals where all changes
+happen right away
+
+the switchboard will route the containers back to where they came from - the contract will contain the status of the container having been sent to the supplier
+(i.e. did we succeed in making an update).
+
+
+2) a container out in the world with an active portal back to the switchboard
+In this case then the portal can be producing containers on demand without a request originating from the client.
+
+for instance - if you plug a portal into a container that the switchboard routes to a broadcasting data source (one that produces data without
+being asked to) - containers will automatically be arriving within the master container via the portal
+
+The master container (the one with the active portal) will listen for new containers arriving through the portal and be ready
+to deal with them when they arrive.
+
+Note - temporary portals never have this situation - containers with temporary portals will only ever expect and answer to their original request through
+the portal (at which point they close the portal).  Containers with proper portals have to be ready for events that did not originate from their request.
+
+
+Equally if this container wants to send changed elements - it can send containers down the portal and the affected elements will arrive (inside of containers)
+in everyone elses portals (well those the switchboard decides are connected to the originating portal)
+
+
+**Switchboard**
+The warehouse registry that gets the other end of the portals that are connected to containers.
+
+The switchboard keeps track of the elements that are present within the container on the other end of a portal.
+
+Any event that affects any of these elements that occurs elsewhere on the switchboard will be routed down the portal.
+
+Think of it as a massive object id based switching system where each switch knows the object ids of things at the other end
+and so can be responsible for deciding which messages apply and which don't
+
+**Action**
+A set of instructions that should be carried out - whether in code or config.
+
+An action can also be sent down a portal (in the place of containers) and appear in containers the other end - 
+an action might not have anything to do with elements though - it might be a more general event.
+
+**Message**
+An envolope for something sent down a portal.
+
+
+**Supplier**
+An external service that can take in containers - analyze the contracts pinned to them and fetch the raw data that the contract is asking for.
+It will then know how to convert the raw data into elements wrappers and will inject the correct driver into each element
+so it can float freely in the world (i.e. outside the container).
+
+The bottom line is it's the suppliers job to setup the container for whatever the contract was.
+
+Once the container leaves the supplier - there can be no difference between a container from 2 different suppliers.
+
+As an example - you MUST be able to combine 2 containers as though they were native to each other even if one came from
+Facebook and the other from the filesystem.
+
+The internals of updating an element or modifying the structure of elements is looked after by 
+
+a) the container the element resides in and
+
+b) the driver the container has been given upon creation
+
+----------------------------------------------------------------------
+
+*API*
+
+
+**Getting a full container**
+
+$quarry is the warehouse - it provides you with an contract facilitation service
+
+	$quarry(contractInformation, context);
+
+is the main entrance point and is the way that you issue contracts
+
+a contract is created from the contract information - this will contain information about the context 
+(i.e. the second argument is only a jQuery friendly syntax - it is the same as contractInformation.context and in fact becomes this)
+
+an empty container is then created and the contract information pinned to it
+
+the contract is then analyzed to decide which supplier will fulfill it
+
+the container (with contract pinned) is then sent to the supplier and the warehouse sleeps
+
+the supplier gets busy a) getting the raw data for the contract and b) turning the raw data into elements
+
+the supplier fills the container with elements and returns the container back to the warehouse
+
+the warehouse then has a full container with contract still pinned
+
+the container is sent back to the client
+
+the containers promises can now be fulfilled and the container is full of the elements the promises need to work with
+
+
+
+**Sending back changes to the supplier**
+
+So you will have some elements from a container in your app - you can mess with the elements and (permissions allowing)
+you can send these elements back to the supplier for archiving.
+
+	// get the 3rd element in the container
+	var element = container.get(3);
+	
+	// change the name of the element
+	element.attr('name', 'New Name');
+	
+	// save the element
+	element.save();
+
+a container is empty upon creation - but will have the contract info pinned to it
+
+a container works with promises - everything you tell it to to it will know
+whether it is for now or for when the container is filled.
+
+
+
+
+
+
+
+*Supplier Types*
+
+Some form of data storage (readonly or readwrite) that can provide the raw data to a driver to be
+turned into Elements.
+
+This can be:
+
+ * filesystem (Trees) 
+ * MySQL database (Trees)
+ * Mongo database (Trees)
+ * Twitter feed (Strings)
+ * Facebook feed (Strings)
+ * Postcode address service (Strings)
+ * Currency exchange data (Numbers)
+ * Weather reports (Numbers)
+ * GDP / company SEC filings (Numbers)
+ * News sites (+ NLP)
+ * Blogs (+ NLP)
+ 
+ 
+	
+
+-> data provider
+	-> selectors applied to databases
+	-> configs applied to external data sources
+	-> something that can produce raw data
+
+
+
+
+-> query
+	-> query data
+
+-> elements
+	-> attributes (these are primitives in a structure defined by a blueprint)
+	-> ancestors/descendents (these are managed by a tree object for each context to allow in memory selectors)
+	
+
+
+-> action
+	load some elements
+	update/delete/move/ghost/function an element(s)
+	
+	
+
+
+selector + action
+
+
+
+
+
+
+
+
+
+
+
+
+Things to do:
+
+Website Server
+
+-> website loading and static file serving
+-> website config hotswap
+
+Selectors
+
+-> pure js sizzle
+-> main quarry functional interface
+-> query classes
+	-> 
+	
+
+
+
+	
+-> base element classes
+
+
+
+Rabbit
+
+-> install / configure
+-> PHP admin rabbit interface
+-> node.js system level rabbit interface
+-> message classes
+
+
+
+
+
+
+
+
+
+*Examples*
+
+**changing all the servers to point at new file locations**
+
+/etc/nginx/sites-available/quarry
+/etc/init.d/nginx restart
+
+/etc/init/quarryweb.conf
+restart quarryweb
+
+app/js/config/system/server.json
+
+
+
+
+
+
+
+Notes
+
+database selectors
+
+server:
+
+custom parser for selector - hit database - get collection
+
+collection can produce XML to run against in-memory selectors
+(same for client)
+
+
+
+in-memory selectors
+
+server:
+
+bootstrap one of the simple DOMS - use sizzle XML
+
+client:
+
+use sizzle XML
+
+genius!

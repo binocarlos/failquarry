@@ -1,0 +1,71 @@
+<h3><%= everyauth.loggedIn ? 'link accounts...' : 'login...' %></h3>
+
+<% 
+	var apis = ['facebook', 'twitter', 'dropbox'];
+	
+	var mainVerb = 'login with';
+	
+	if(everyauth.loggedIn) {
+		mainVerb = 'connect to';
+	}
+	
+	for(var i in apis) {
+		var api = apis[i];
+		var printApi = api;
+		var verb = mainVerb;
+		var printLink = true;
+		var img = '';
+		if(everyauth[api]) {
+			verb = everyauth.user.getApiName(api);
+			printApi = '';
+			printLink = false;
+			
+			var src = everyauth.user.getApiImg(api);
+			
+			if(src!=null) {
+				img = '<img class="connectProfileImg" src="' + src + '" />';
+			}
+		}
+
+		if(printLink) {
+		
+%>
+		<div style="cursor:pointer;" onClick="document.location='/auth/<%= api %>';">
+			
+<%
+
+		}
+
+%>
+			
+			<div class="connectLogo <%= api %>"><%- img %><div class="status"><%= verb %> <%= printApi %></div></div>
+
+<%
+		if(printLink) {
+		
+%>
+		</div>
+			
+<%
+
+		}
+	}
+%>
+
+<%
+	if(!everyauth.loggedIn) {
+%>	
+	
+	<div class="connectQuarry">
+		<a href="/login">login</a> or <a href="/register">register</a> with plain ol' quarry<br /><br />
+		<span style="font-size:0.85em;">
+		<i>We won't post on your timelime, tweet on your stream or spam your inbox, we hate spam, 
+	that vile luncheon meat that for far too long enjoyed it's status of 'edible'.</i>
+		</span>
+	</div>
+	
+	
+	
+<%	
+	}
+%>

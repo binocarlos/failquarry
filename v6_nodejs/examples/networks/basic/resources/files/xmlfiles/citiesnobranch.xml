@@ -1,0 +1,36 @@
+<folder id="places" class="hello" quarryid="4cc975073cf54161af3edc31dff8afd1">
+	<country quarryid="533d6a74f1614b6386fd801ff42aa14c" class="big apples" name="UK">
+		<city quarryid="20b935e7d1bc4f2ab40bee893f1f39cc" class="south" name="Bristol" team="Bristol City">
+			<area quarryid="2b7fd597871d436fa7031e1ebfb79837" class="poor" name="St. Pauls" population="103" />
+			<area quarryid="101b5c8eab424621904229637d2dde0d" class="rich" name="Redland" population="79" />
+			<area quarryid="54c7525356d24019956963f538003ef6" class="poor" name="Easton" population="38" />
+			<area quarryid="bf75a73a95dce576a3d35842e465f212" class="rich" name="Hotwells" population="320" />
+		</city>
+		<city quarryid="c5b2e1c184c1478da5803a7459a1c7a3" class="south" name="London" team="Arsenal">
+			<area quarryid="dbf397f798c54f91be567b49a2787a3e" class="rich" name="Westminster" population="298" />
+			<area quarryid="7e9077880fda448b8d98a0e16ba1aeb5" class="rich" name="Ealing" population="98" />
+			<area quarryid="8869cbdadcd04d6d804974322601f0c2" class="poor" name="Woolwich" population="68" />
+		</city>
+		<city quarryid="489fd84af5124561af7202fa21f91423" class="midlands" name="Birmingham" team="Ason Villa">
+			<area quarryid="1dd1333a491e442a9944c6a9773ad6a1" class="rich" name="Edgbaston" population="183" />
+		</city>
+		<city quarryid="951941e5dfb140d78dd3e91351e54031" class="midlands" name="Nottingham" team="Nottingham Forest">
+			<area quarryid="17d3a7c403fb429a9faecb3c443d4c6d" class="rich" name="Trent" population="183" />
+		</city>
+		<city quarryid="5adc02f47f5649c199b63876baf408b5" class="north" name="Liverpool" team="Everton">
+			<area quarryid="7c853daeaf074c71975ae222e4898ecb" class="poor" name="Everton" population="89" />
+		</city>
+		<city quarryid="ea9280b8bcc842df92d170a177be91f7" class="north" name="Middlesbrough" team="Middlesbrough">
+			<area quarryid="a2e256d8626c4549a72eb21b72824b64" class="rich" name="Linthorpe" population="28" />
+			<area quarryid="1bd68e7555b5435d853addaad18758c1" class="poor" name="Grangetown" population="39" />
+		</city>
+	</country>
+	<country quarryid="430552c81c2c4fe8a29baab8800ef478" class="big" name="Scotland">
+		<city quarryid="deb5d0cfd4f4455cb6244072cf812e58" class="north" name="Aberdeen" team="Aberdeen">
+			<area quarryid="26dedfa9bc4a4b10a4c327f26dd7fe98" class="poor" name="Harbourside" population="39" />
+		</city>
+		<city quarryid="63874097e9cc4657a5a95e684ec581df" class="south" name="Edinburgh" team="Hearts">
+			<area quarryid="2920402675aa4388948f71fe08926aeb" class="rich" name="Meadows" population="97" />
+		</city>
+	</country>
+</folder>

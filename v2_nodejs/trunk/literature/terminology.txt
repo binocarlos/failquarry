@@ -1,0 +1,85 @@
+Quarry: a place where stone is dug out of the ground
+
+ * dynamite = selector
+ * stone = node
+ * gravel = collection
+
+you use dynamite to get stones from a quarry
+
+gravel is a bunch of stones
+
+-------------------------------
+
+Stone: a naturally occurring solid aggregate of minerals
+
+ * stone = node
+ * blueprint = model
+ * mineral = primitive
+
+a blueprint tells a stone what minerals it is made of and how to behave
+
+
+-------------------------------
+
+Furnace: a device used for heating
+
+ * furnace = Turns nodes into JSON and back - for sending down the network
+ 
+The furnace will take your stones and turn them into lava
+It will also take lava - and turn it into stones
+
+-------------------------------
+
+Lava: molten rock expelled by a volcano during an eruption
+
+ * lava = serialized node data sent down a tunnel
+ 
+turning your stones into lava means you can send them down any tunnel you have dug
+
+-------------------------------
+
+Tunnel: an underground passageway
+
+ * tunnel = socket to the server - the user can make new tunnels
+ 
+if you make a tunnel you can pour lava down it and it will appear the other end
+
+-------------------------------
+
+Gem: a piece of mineral, in cut and polished form
+
+ * gem = widget file (HTML, CSS, JS, Template, Anything)
+
+a gem transforms stones into beautiful objects of desire
+
+-------------------------------
+
+Crate: a large shipping container
+
+ * crate = folder containing files
+ 	
+a crate contains fossils
+
+-------------------------------
+
+Truck: a motor vehicle designed to transport cargo
+
+ * truck = component (directory of resources)
+ 	
+a truck can get gravel, gems, stones and fossils from a quarry and take them to customers
+
+-------------------------------
+
+Digger: heavy construction equipment consisting of a boom, stick, bucket and cab
+
+	* digger = windows explorer admin panel
+	
+the digger lets you dig down to anywhere in your quarry	
+
+-------------------------------
+
+Colonel: a military rank of a senior commissioned officer
+
+	* colonel = the proxy into the core system like files and databases - either from browser OR server (agnostic and async)
+	
+The colonel is in charge of the quarry - whether you are digging from the browser or the server, the colonel has your back.

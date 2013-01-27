@@ -1,0 +1,10 @@
+<folder id="top" quarryid="4cc975073cf54161af3edc31dff8a123" routes="{}" class="hello">
+	<country quarryid="4cc975073cf54161af3edc31dff8a124" routes="{}" class="big apples" name="USA">
+		<city quarryid="4cc975073cf54161af3edc31dff8a125" routes="{'stamp':'/ram/file/xml/usacities'}" class="south" name="Boston" team="White Sox">
+			<area quarryid="4cc975073cf54161af3edc31dff8a126" routes="{}" class="poor" name="Windy Bay" population="143" />
+		</city>
+		<city quarryid="4cc975073cf54161af345631dff8a127" routes="{}" class="south" name="Louisville" team="Bashers">
+			<area quarryid="4cc975073cf54398af3edc31dff8a128" routes="{}" class="poor" name="OakGrove" population="14" />
+		</city>
+	</country>
+</folder>

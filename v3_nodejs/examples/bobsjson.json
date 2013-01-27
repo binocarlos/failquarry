@@ -1,0 +1,53 @@
+[
+    {
+        "name": "Bob",
+        "username": "Bobs ting",
+        "_children": [
+            {
+                "_meta": {
+                    "id": null,
+                    "tag": "picture",
+                    "classNames": {}
+                },
+                "name": "Bobs Photo",
+                "_id": "419b7523-ddc9-4ff0-994a-0ce43cb7b1f5",
+                "_children": []
+            },
+            {
+                "name": "Facebook",
+                "_meta": {
+                    "id": null,
+                    "tag": "profile",
+                    "classNames": {
+                        "red": true
+                    }
+                },
+                "_id": "dc475ffd-e6dd-4d9e-9847-9ee29b7c5522",
+                "_children": []
+            },
+            {
+                "name": "Bobs QuarryDB",
+                "database": "quarrydb",
+                "host": "127.0.0.1",
+                "port": 27017,
+                "collection": "bob2",
+                "_meta": {
+                    "id": null,
+                    "tag": "profile",
+                    "classNames": {
+                        "db": true
+                    },
+                    "supplier": "quarrydb"
+                },
+                "_id": "eb67ea64-f4a3-47c9-aa02-3920353d48db",
+                "_children": []
+            }
+        ],
+        "_meta": {
+            "id": null,
+            "tag": "user",
+            "classNames": {}
+        },
+        "_id": "d6cf5358-27ca-4d81-adc4-508cf7c3b466"
+    }
+]

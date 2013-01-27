@@ -1,0 +1,21 @@
+// gets put at the top of a page (just after <HEAD>)
+// this lets the page register $quarry(function(){}) ready handlers
+
+(function(window){
+
+	var readyCallbacks = [];
+	
+	var readyFunction = function(readyCallback){
+	  readyCallbacks.push(readyCallback);
+	}
+
+	var tempQuarry = readyFunction;
+	tempQuarry.ready = readyFunction;
+
+	tempQuarry._callbacks = function(){
+		return readyCallbacks;
+	}
+
+	window.$quarry = tempQuarry;
+
+})(window)

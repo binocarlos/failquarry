@@ -1,0 +1,37 @@
+<%
+	page.set({
+		"heading":"Ermm...",
+		"strapline":"Who are you again?",
+		"share":false
+	});
+	
+%>
+          <!--left col-->
+          <div class="span14">
+
+<form method="POST" action="/login">
+<input type="hidden" name="_submit" value="y" />	
+
+<div class="ui-widget">
+<label for="login" style="width:100px;float:left;padding-top:8px;">Your Email: </label>
+<input class="ui-autocomplete-input" id="login" name="login" value="<%- form.login %>" />
+</div>
+<br />
+<div class="ui-widget">
+<label for="password" style="width:100px;float:left;padding-top:8px;">Your Password:</label>
+<input class="ui-autocomplete-input" id="password" name="password" value="<%- form.password %>" />
+</div>
+
+<% if(form._submit && errors) { %>
+
+	<span style="color:#ff0000;"><%- JSON.stringify(errors) %></span>
+
+<% } %><br />
+
+<button class="ui-button-primary ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="add_tab" role="button" aria-disabled="false"><span class="ui-button-text">Login</span></button>
+
+</form>
+
+you can register for a quarry account <a href="/register">here</a>
+          </div>
+         

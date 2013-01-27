@@ -1,0 +1,18 @@
+<folder id="top" quarryid="4cc975073cf54161af3edc31dff8a123" routes="{}" class="hello">
+	<country quarryid="4cc975073cf54161af3edc31dff8a124" routes="{}" class="big apples" name="USA">
+		<city quarryid="4cc975073cf54161af3edc31dff8a125" routes="{'stamp':'/ram/file/xml/usacities'}" class="south" name="Boston" team="White Sox">
+			<area quarryid="4cc975073cf54161af3edc31dff8a126" routes="{}" class="poor" name="Windy Bay" population="143" />
+			<area quarryid="3b3b4e92af8aaf804f650e6eeb6f25fe" routes="{'stamp':'/ram/file/xml/usacities'}" class="rich" name="Bishopston" population="387">
+				<house quarryid="21d66a3c4ab535d8373f3711768f3c64" routes="{'stamp':'/ram/file/xml/usacities'}" class="grand" name="Big House" population="3" />
+			</area>
+			<area quarryid="84f3856b5bf6757392c91c500d3d142c" routes="{'stamp':'/ram/file/xml/usacities'}" name="Brislington" flavour="apple" />
+			<area quarryid="8849e56f4eb94a778f1ea3cc07761b8a" routes="{'stamp':'/ram/file/xml/usacities'}" name="Brislington" flavour="apple" />
+			<area quarryid="73c8bd7b00621612b784218e73079b59" routes="{'stamp':'/ram/file/xml/usacities'}" name="Brislington" flavour="apple" />
+			<area quarryid="bd4ebf1623f15643b0f17dbfa834e89d" routes="{'stamp':'/ram/file/xml/usacities'}" name="Brislington" flavour="apple" />
+			<area quarryid="045808a12fabcbae0f54651c68b859d0" routes="{'stamp':'/ram/file/xml/usacities'}" name="Brislington" flavour="apple" />
+		</city>
+		<city quarryid="4cc975073cf54161af345631dff8a127" routes="{}" class="south" name="Louisville" team="Bashers">
+			<area quarryid="4cc975073cf54398af3edc31dff8a128" routes="{}" class="poor" name="OakGrove" population="14" />
+		</city>
+	</country>
+</folder>

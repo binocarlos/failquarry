@@ -1,0 +1,64 @@
+[
+    {
+        "name": "Folder",
+        "_meta": {
+            "tagname": "blueprint",
+            "quarryid": "b2987102-8f59-45ee-87bb-a637da5b927f"
+        },
+        "stub": {
+            "_meta": {
+                "tagname": "folder"
+            }
+        },
+        "fields": [
+            "name"
+        ],
+        "_children": []
+    },
+    {
+        "name": "Image",
+        "_meta": {
+            "tagname": "blueprint"
+        },
+        "stub": {
+            "_meta": {
+                "tagname": "image"
+            }
+        },
+        "fields": [
+            {
+                "field":"image",
+                "type":"image"
+            }
+        ],
+        "_children": []
+    },
+    {
+        "name": "E-Commerce",
+        "_meta": {
+            "tagname": "folder"
+        },
+        "_children": [{
+            "name": "Product",
+            "_meta": {
+                "tagname": "blueprint"
+            },
+            "stub": {
+                "_meta": {
+                    "tagname": "product"
+                }
+            },
+            "fields": [
+                "name",
+                {
+                    "field":"price",
+                    "type":"money"
+                },
+                {
+                    "field":"image",
+                    "type":"image"
+                }
+            ]
+        }]
+    }
+]

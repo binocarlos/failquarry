@@ -1,0 +1,193 @@
+[
+    {
+        "name": "South",
+        "_children": [
+            {
+                "name": "Bristol",
+                "population": 100,
+                "_meta": {
+                    "tagname": "city",
+                    "classnames": {
+                        "cool": true
+                    },
+                    "quarryid": "4cf489eb-d3a4-46ad-8e9b-9731196334f8"
+                },
+                "_children": [
+                    {
+                        "name": "Saint Pauls",
+                        "population": 4,
+                        "_meta": {
+                            "tagname": "area",
+                            "quarryid": "bb3a4268-a1fe-430d-98d3-f4149347e9a1"
+                        },
+                        "_children": []
+                    },
+                    {
+                        "name": "Redland",
+                        "population": 4,
+                        "_meta": {
+                            "tagname": "area",
+                            "quarryid": "9da7d030-f323-4d04-a4fb-00c955af7113"
+                        },
+                        "_children": []
+                    }
+                ]
+            },
+            {
+                "name": "London",
+                "population": 9870,
+                "_meta": {
+                    "tagname": "city",
+                    "classnames": {
+                        "big": true
+                    },
+                    "quarryid": "007a97b3-3db7-4caf-9d62-9af00012ef94"
+                },
+                "_children": [
+                    {
+                        "name": "Hoxton",
+                        "population": 43,
+                        "_meta": {
+                            "tagname": "area",
+                            "quarryid": "128c4b96-e9dd-4070-9191-ba7221a72efc"
+                        },
+                        "_children": []
+                    },
+                    {
+                        "name": "Westminster",
+                        "population": 49,
+                        "_meta": {
+                            "tagname": "area",
+                            "quarryid": "2e942390-e50c-4641-9bbd-de2891dcf89e"
+                        },
+                        "_children": []
+                    }
+                ]
+            }
+        ],
+        "_meta": {
+            "quarryid": "8cd6fdf1-32c3-4419-a700-2728d62f3e46"
+        }
+    },
+    {
+        "name": "North",
+        "_children": [
+            {
+                "name": "Liverpool",
+                "population": 237,
+                "_meta": {
+                    "tagname": "city",
+                    "classnames": {
+                        "cool": true,
+                        "food": true
+                    },
+                    "quarryid": "4329f8f1-3691-4a5a-8f61-2edada742814"
+                },
+                "_children": [
+                    {
+                        "name": "Everton",
+                        "population": 42,
+                        "_meta": {
+                            "tagname": "area",
+                            "quarryid": "0ea93970-2be7-4a5e-bc62-9a6852a28aff"
+                        },
+                        "_children": []
+                    },
+                    {
+                        "name": "Toxteth",
+                        "population": 23,
+                        "_meta": {
+                            "tagname": "area",
+                            "quarryid": "1fe4959e-7f55-483c-8100-0c1b29c062ef"
+                        },
+                        "_children": []
+                    }
+                ]
+            },
+            {
+                "name": "Middlesbrough",
+                "population": 12,
+                "_meta": {
+                    "tagname": "city",
+                    "classnames": {
+                        "bad": true
+                    },
+                    "quarryid": "8786a01f-ef6f-4ec4-bba8-93621bae2209"
+                },
+                "_children": [
+                    {
+                        "name": "Linthorpe",
+                        "population": 9,
+                        "_meta": {
+                            "tagname": "area",
+                            "quarryid": "6bb15bb1-75f5-4947-9ceb-f8f76333726b"
+                        },
+                        "_children": []
+                    },
+                    {
+                        "name": "Teesside",
+                        "population": 23,
+                        "_meta": {
+                            "tagname": "area",
+                            "quarryid": "22ebfd60-627d-4f8c-9e33-26b68d0e2c9f"
+                        },
+                        "_children": []
+                    }
+                ]
+            }
+        ],
+        "_meta": {
+            "quarryid": "9a8cda88-17cc-49e7-a178-9cd6c45bad91"
+        }
+    },
+    {
+        "_meta": {
+            "quarryid": "c8309512-c7c3-4826-97a8-c6188926edcc",
+            "tagname": "product",
+            "classnames": {
+                "onsale": true
+            }
+        },
+        "_children": [
+            {
+                "_meta": {
+                    "quarryid": "460b5c6d-6a5a-46d2-9919-c145565c643a",
+                    "tagname": "caption"
+                },
+                "_children": [],
+                "text": "Hello World"
+            }
+        ],
+        "price": 100,
+        "color": "red"
+    },
+    {
+        "_meta": {
+            "quarryid": "6a557482-4d18-484a-976a-9063a70fa895",
+            "tagname": "supplier",
+            "route": {
+                "driver": "json_file",
+                "file": "/srv/quarryio/examples/fruit.json",
+                "pretty": true
+            },
+            "classnames": {
+                "food": true
+            }
+        },
+        "_children": []
+    },
+    {
+        "_meta": {
+            "tagname": "supplier",
+            "route": {
+                "driver": "quarrydb",
+                "collection": "apples"
+            },
+            "classnames": {
+                "food": true
+            },
+            "quarryid": "0f42be01-70ea-45bf-9580-3c14aafb5a11"
+        },
+        "_children": []
+    }
+]

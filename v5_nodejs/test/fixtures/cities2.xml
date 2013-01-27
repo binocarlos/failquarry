@@ -1,0 +1,8 @@
+<folder id="places" quarryid="4cc97507-3cf5-4161-af3e-dc31dff8afd1">
+	<country class="big apples" name="USA">
+		<city class="north" name="New York" team="Yankees">
+			<area class="poor" name="Queens" population="1222" />
+			<area class="rich" name="Manhatten" population="3434" />
+		</city>
+	</country>
+</folder>

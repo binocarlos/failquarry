@@ -1,0 +1,160 @@
+<%
+	page.set({
+		"menu":[{
+				title:"Your Account",
+				link:"/",
+				active:true
+			},
+			{
+				title:"Logout",
+				link:"/logout",
+				side:'right'
+			},],
+		"scripts":["/js/account/index.js"],
+		"heading":"The Quarry",
+		"strapline":"gem-stones and elements await you...",
+		"share":false
+	});
+	
+%>
+          <!--left col-->
+          <div class="span10">
+
+<h3>websites...</h3>
+
+<div id="website_container">loading...</div>
+
+<script type="text/template" id="renderWebsites">
+	
+<div id="website_accordion">
+
+<@ for(var i in websites) { 
+
+	var website = websites[i];
+	
+@>
+
+             <div class="website" data-name="<@= website.name @>" data-subdomain="<@= website.drive @>">
+                <h3><a href="#"><@= website.name @></a></h3>
+                <div>
+                	domains:
+                	<ul>
+<@
+	var domains = website.domains.split(',');
+	for(var i in domains) {
+		var domain = domains[i];
+		
+		if(!domain.match(/\./)) {
+			domain += '.dev.jquarry.com';
+		}
+		
+		var url = 'http://' + domain;
+		
+@>
+
+				<li><a href="<@= url @>" target="_blank"><@= url @></a></li>
+		
+<@		
+	}
+@>
+
+			
+				</ul>
+				
+					ftp:
+					<ul>
+						<li>hostname:ftp.dev.jquarry.com</li>
+						<li>username:<@= website.ftp_username @></li>
+						<li>password:<@= website.ftp_password @></li>
+					</ul>
+                </div>
+              </div>
+              
+	
+<@ } @>
+	
+</div>
+	
+</script>
+
+<br />
+<button class="ui-button-primary ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="add_website" role="button" aria-disabled="false"><span class="ui-button-text">Add Website</span></button>
+<hr />
+<h3>databases...</h3>
+
+<div id="database_container">loading...</div>
+
+<script type="text/template" id="renderDatabases">
+	
+<div id="database_accordion">
+
+<@ for(var i in databases) { 
+
+	var database = databases[i];
+	
+@>
+	
+			<div class="database" data-name="<@= database.name @>" data-drive="<@= database.drive @>">
+                <h3><a href="#"><@= database.name @></a></h3>
+                <div>drive: <@= database.drive @>:/</div>
+              </div>
+	
+<@ } @>
+
+</div>
+
+</script>
+
+<br />
+<button class="ui-button-primary ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="add_database" role="button" aria-disabled="false"><span class="ui-button-text">Add Database</span></button>
+
+          </div>
+          <!--end col-->
+
+
+
+          <!--right col-->
+          <div class="span4">
+
+<%- partial("connect") %>
+
+
+          </div>
+          <!--end col-->
+          
+          
+<!--website dialog-->
+          <div id="add_website_dialog" title="Website Info">          	
+<input type="hidden" id="website_id" value="" />          	
+<br />
+<div class="ui-widget">
+<label for="name" style="width:100px;float:left;padding-top:8px;">Name: </label>
+<input class="ui-autocomplete-input" id="websitename" name="websitename" value="" />
+</div><br />
+<div class="ui-widget">
+<label for="login" style="width:100px;float:left;padding-top:8px;">Domain:</label>
+<input style="text-align:right;" class="ui-autocomplete-input" id="subdomain" name="subdomain" value="" />.jquarry.com
+</div>
+<br />
+<div class="ui-state-error ui-corner-all" id="website_error_span">error</div>
+          </div>
+        <!--end static dialog-->          
+                  
+<!--database dialog-->
+          <div id="add_database_dialog" title="Database Info">
+<input type="hidden" id="database_id" value="" />          	
+<br />
+<div class="ui-widget">
+<label for="name" style="width:100px;float:left;padding-top:8px;">Name: </label>
+<input class="ui-autocomplete-input" id="databasename" name="databasename" value="" />
+</div>
+<br />
+<div class="ui-widget">
+<label for="name" style="width:100px;float:left;padding-top:8px;">Drive: </label>
+<input class="ui-autocomplete-input" id="databasedrive" name="databasedrive" value="" />
+</div>
+<br />
+<div class="ui-state-error ui-corner-all" id="database_error_span">error</div>
+          </div>
+        <!--end static dialog-->          
+          

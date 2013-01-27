@@ -1,0 +1,96 @@
+[
+    {
+        "name": "Apples",
+        "_meta": {
+            "tagname": "fruit",
+            "classnames": {},
+            "quarryid": "96ccbb3d-94c4-42a6-a67f-e6f9d2f67543"
+        },
+        "_children": [],
+        "price": 250
+    },
+    {
+        "name": "Peaches",
+        "_meta": {
+            "tagname": "fruit",
+            "classnames": {},
+            "quarryid": "03303595-7b33-420e-8644-174c380f8869"
+        },
+        "_children": [],
+        "price": 250
+    },
+    {
+        "name": "Lemon",
+        "_meta": {
+            "tagname": "fruit",
+            "classnames": {
+                "citrus": true
+            },
+            "quarryid": "422b1065-85ba-449a-9541-6cc5c8f898df"
+        },
+        "_children": [
+            {
+                "price": 100,
+                "tagline": "A real cheap eat",
+                "_meta": {
+                    "quarryid": "014f237c-ecc1-4791-8ae4-6533955c01b5",
+                    "tagname": "product",
+                    "classnames": {
+                        "onsale": true
+                    }
+                },
+                "_children": []
+            },
+            {
+                "price": 200,
+                "tagline": "A real cheap eat",
+                "_meta": {
+                    "quarryid": "11f4350e-a615-4987-b211-8e75c727fd3b",
+                    "tagname": "product",
+                    "classnames": {
+                        "onsale": true
+                    }
+                },
+                "_children": []
+            }
+        ],
+        "price": 250
+    },
+    {
+        "name": "Lime",
+        "_meta": {
+            "tagname": "fruit",
+            "classnames": {
+                "citrus": true
+            },
+            "quarryid": "73702363-c0ec-41c5-90ed-47d1cb124092"
+        },
+        "_children": [
+            {
+                "price": 100,
+                "tagline": "A real cheap eat",
+                "_meta": {
+                    "quarryid": "014f237c-ecc1-4791-8ae4-6533955c01b5",
+                    "tagname": "product",
+                    "classnames": {
+                        "onsale": true
+                    }
+                },
+                "_children": []
+            },
+            {
+                "price": 200,
+                "tagline": "A real cheap eat",
+                "_meta": {
+                    "quarryid": "11f4350e-a615-4987-b211-8e75c727fd3b",
+                    "tagname": "product",
+                    "classnames": {
+                        "onsale": true
+                    }
+                },
+                "_children": []
+            }
+        ],
+        "price": 250
+    }
+]

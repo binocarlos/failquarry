@@ -1,0 +1,29 @@
+[
+    {
+        "_meta": {
+            "id": null,
+            "quarryid": "d49717fc-dc89-b1e9-5ab8-4da784bc2ec1",
+            "tag": "folder",
+            "classNames": {
+                "london": true
+            }
+        },
+        "name": "Products",
+        "_children": [
+            {
+                "_meta": {
+                    "id": null,
+                    "quarryid": "e63b45cc-1e83-8d07-d753-1acd330a2444",
+                    "tag": "product",
+                    "classNames": {
+                        "onsale": true
+                    }
+                },
+                "name": "Big Ben",
+                "price": 4500000,
+                "color": "GREEN",
+                "_children": []
+            }
+        ]
+    }
+]

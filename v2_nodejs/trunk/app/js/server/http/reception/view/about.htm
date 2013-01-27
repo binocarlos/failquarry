@@ -1,0 +1,45 @@
+<%
+	page.set({
+		"menu":[
+			{
+				title:"Home",
+				link:"/"
+			},
+			{
+				title:"What is it?",
+				link:"/about",
+				active:true
+			},
+			{
+				title:"How much is it?",
+				link:"/pricing"
+			},
+			{
+				title:"FAQs",
+				link:"/faqs"
+			}
+		],
+		"heading":"Uber Hosting!",
+		"strapline":"Easily create powerful applications...",
+		"share":true
+	});
+	
+%>
+          <!--left col-->
+          <div class="span10">
+
+quarry.js is a web hosting platform.
+
+          </div>
+          <!--end col-->
+
+
+
+          <!--right col-->
+          <div class="span4">
+
+<%- partial("connect") %>
+
+
+          </div>
+          <!--end col-->

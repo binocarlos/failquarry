@@ -1,0 +1,12 @@
+// this is the JS injected into a client page
+// it is basically a bootloader for the client stack
+
+(function(window, document){
+
+	// lets hook up jquery and the sockets
+	document.write('<script src="/jquarry/libs/jquery.min.js"></script>');
+	document.write('<script src="/socket.io/socket.io.js"></script>');
+	document.write('<script src="/jquarry/header.js"></script>');
+	document.write('<script src="/jquarry/core.js"></script>');
+
+})(window, document);

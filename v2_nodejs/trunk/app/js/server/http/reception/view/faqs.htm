@@ -1,0 +1,45 @@
+<%
+	page.set({
+		"menu":[
+			{
+				title:"Home",
+				link:"/"
+			},
+			{
+				title:"What is it?",
+				link:"/about"
+			},
+			{
+				title:"How much is it?",
+				link:"/pricing"
+			},
+			{
+				title:"FAQs",
+				link:"/faqs",
+				active:true
+			}
+		],
+		"heading":"Ask away!",
+		"strapline":"the lowdown and nitty bits...",
+		"share":true
+	});
+	
+%>
+          <!--left col-->
+          <div class="span10">
+
+questions questions - roll up for your questions
+
+          </div>
+          <!--end col-->
+
+
+
+          <!--right col-->
+          <div class="span4">
+
+<%- partial("connect") %>
+
+
+          </div>
+          <!--end col-->

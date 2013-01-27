@@ -1,0 +1,47 @@
+1. Get file delivery sorted
+
+2. File proxy with caching and image effects
+
+3. Blueprint creator
+
+4. Tree
+
+5. Container View
+
+6. Security Settings
+
+7. XML parser
+
+8. Link generator
+
+9. Snippet Editor
+
+10. Snippet Server
+
+11. Website Server
+
+12. Suppliers:
+
+	Facebook - friends / photos / videos / blogs
+
+	linkedin - friends / blogs
+
+	twitter - realtime / friends
+
+	google - friends / lots
+
+	ebay / amazon - products
+
+	flickr / google - images
+
+	youtube - videos
+
+	yahoo - stocks
+
+13. User Manager and subsequent authentication (bobs customers to login)
+
+14. Account management & Payment
+
+15. Domains / Email / DNS / etc
+
+16. Widgets

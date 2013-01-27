@@ -1,0 +1,46 @@
+[
+    {
+        "name": "Apples",
+        "_meta": {
+            "tagname": "fruit",
+            "classnames": {},
+            "quarryid": "56544da5-34a4-4b28-b0b5-4a9410101954"
+        },
+        "_data": {},
+        "_children": []
+    },
+    {
+        "name": "Peaches",
+        "_meta": {
+            "tagname": "fruit",
+            "classnames": {},
+            "quarryid": "18421da3-a87d-41c2-b55c-61278584a713"
+        },
+        "_data": {},
+        "_children": []
+    },
+    {
+        "name": "Lemon",
+        "_meta": {
+            "tagname": "fruit",
+            "classnames": {
+                "citrus": true
+            },
+            "quarryid": "4287a0fc-bc02-47e7-aa2a-1b6972e563f7"
+        },
+        "_data": {},
+        "_children": []
+    },
+    {
+        "name": "Lime",
+        "_meta": {
+            "tagname": "fruit",
+            "classnames": {
+                "citrus": true
+            },
+            "quarryid": "3ef3ed14-b409-41ed-b679-a4c6b9aa3060"
+        },
+        "_data": {},
+        "_children": []
+    }
+]

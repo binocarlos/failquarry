@@ -1,0 +1,386 @@
+<% layout('../layouts/bootstrap') -%>
+
+<div class="container">
+  <div class="row">
+    <div class="span12" id="digger">
+
+      <div class="row">
+        <div class="span3" id="tree">Tree</div>
+        <div class="span9" id="selector">
+        <div class="row">
+          <div class="span5">
+              <input type="text" style="width:100%;" placeholder="selector" id="selector">
+          </div>
+          <div class="span3">
+              <input type="text" style="width:100%;" placeholder="context" id="context">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="span12">
+
+            <div id="add"></div>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="span12" id="view">
+
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- partial('../frameworks/quarrystrap') %>
+
+<script>
+
+// wait for the DOM
+$(function(){
+
+  $quarry.ready(function(warehouse){
+
+    var async = $quarry.async;
+
+    /*
+      The javascript user
+     */
+    var user = $quarry.user() || {};
+
+    var project = user.projects ? user.projects[user.current_project_index] : null;
+
+    if(!project){
+      project = {
+        name:'default'
+      }
+    }
+
+    // setup the warehouse properly
+    warehouse
+      .title(project.name)
+      .icon('default/root')
+
+    // setup the routers for the various bits and pieces
+    var system_blueprints = $quarry.route('system.blueprints')
+      .tagname('resource')
+      .title('system blueprints')
+      .icon('default/yellowfolder')
+
+    var system_icons = $quarry.route('system.icons')
+      .tagname('resource')
+      .title('system icons')
+      .icon('default/cubes')
+
+    var project_blueprints = $quarry.route('project.blueprints')
+      .tagname('resource')
+      .title('project blueprints')
+      .icon('default/bluefolder')
+
+    var project_files = $quarry.route('project.files')
+      .tagname('resource')
+      .title('Project Files')
+      .icon('default/drive')
+
+    // container the project and system resource routers
+    var project_collection = $quarry.silent('folder')
+      .title('Resources')
+      .icon('default/objects')
+      // flag this as not to hit the server
+      .data('local', true)
+      .append([
+        system_blueprints,
+        system_icons,
+        project_blueprints,
+        project_files
+      ], true)
+
+    // this is what we render into the tree
+    // it has the project and the project_collection resources at the top
+    var root_container = $quarry.silent('folder')
+      .title('ROOT')
+      .append([
+        warehouse,
+        project_collection
+      ], true)
+
+    console.log('ROOT');
+    console.log(system_blueprints.supply_chain());
+
+    var digger_booted = false;
+
+    /*
+      Any messages for this project warehouse will arrive here
+     */
+    $quarry.portal(function(packet){
+
+
+    })
+
+    
+
+    /*
+      Build up the digger application
+     */
+    function start_digger(){
+
+      if(digger_booted){
+        return;
+      }
+
+      digger_booted = true;
+
+      /*
+        Add the open auth window link and project list to the topbar
+       */
+      build_userbar();
+
+      /*
+        The view of the current container that renders the thumbnails and selectable to edit
+       */
+      build_view({
+        add_button:{
+          loader:load_blueprints_holder
+        }
+      })
+
+      /*
+        The left-hand tree built from the root warehouse
+        This triggers the view and the other way round
+        If the view has stuff the tree does not - the tree ignores it
+        Tree -> View (active - view always renders the clicked container)
+        View -> Tree (passive - tree checks and can ignore this message)
+       */
+      build_tree(root_container);
+
+      /*
+        The boot point of the digger application
+        Load root children from the root warehouse
+        Give the results to the tree and the view
+       */
+       /*
+      warehouse('> *').ready(function(results){
+
+        view_container(results);
+        render_tree(results);
+
+      })
+*/
+
+
+    }
+
+    /*
+      The main trigger for rendering a container in the view
+     */
+    function view_container(results){
+      $('#view').quarryview('render', results);
+    }
+
+    /*
+      The main view of the current container
+     */
+    function build_view(options){
+      $('#view').quarryview(options);
+    }
+
+    /*
+      What happens when a container is opened
+     */
+    function dig(container){
+
+      function apply_dig(results_container){
+        $('#tree').quarrytree('expand', {
+          parent:container,
+          results:results_container
+        })
+      }
+      // we have a tree load!
+      // check the container is not local
+      if(container.data('local')){
+        apply_dig(container);
+      }
+      else{
+        console.log('-------------------------------------------');
+        console.log('-------------------------------------------');
+        console.log('-------------------------------------------');
+        console.log('-------------------------------------------');
+        console.log('-------------------------------------------');
+        console.log('SUPPLY CHAIN');
+        console.dir(container.supply_chain());
+
+        container('> *').ready(function(results){
+          apply_dig(results);
+        })
+      }
+    }
+
+    /*
+      The main tree view of the current container
+     */
+    function build_tree(container){
+
+      console.log('-------------------------------------------');
+      console.log('TREE');
+      console.log(container.supply_chain());
+      // setup the tree component
+      $('#tree')
+        .quarrytree({
+          container:container
+        })
+        .on('container', function(e, container){
+
+          dig(container);
+          
+        })
+    }
+
+
+    /*
+      Edit a single container with a form
+     */
+    function edit_container(container, saved_callback){
+
+      // save the current state for cancelling
+      container.take_snapshot();
+
+      // now build a quarry form in a window
+      var form = $.quarryform({
+        container:container
+      })
+
+      form.quarrywindow({
+        modal:'static',
+        width:600,
+        ok:{
+          label:'Save',
+          callback:function(){
+            if(container.validate()){
+
+              saved_callback(function(){
+                form.quarrywindow('close');
+              })
+
+              return false;
+            }
+            else{
+              return false;
+            }
+          }
+        },
+        close:{
+          label:'Cancel',
+          callback:function(){
+            container.restore_snapshot();
+          }
+        }
+      })
+    }
+
+    /*
+
+
+      Helpers
+
+
+
+
+    */
+
+    /*
+      Open a new auth window to login
+     */
+    function show_auth_window(){
+
+      $.authwindow({
+
+        // pass the user that has been rendered on the page by the quarry.io injection
+        user:user,
+
+        // this will be called when the auth window is closed - it means they are logged in
+        // and ready to start the application
+        closeCallback:function(){
+
+          // tell the server to flag the session with user.started=true for next time
+          // (this means the auth window will not automatically show up)
+          $.getJSON('/usr/start');
+
+          start_digger();
+        }
+      })
+    }
+
+    /*
+      Get all the blueprints and stuff
+     */
+    function load_blueprints_holder(callback){
+      // load a combination of the system and user blueprints
+      async.parallel({
+        system:function(next){
+          system_blueprints('> *:tree').ready(function(result){
+            result.title('System');
+            next(null, result);
+          })          
+        },
+        project:function(next){
+          project_blueprints('> *:tree').ready(function(result){
+            result.title('Custom');
+            next(null, result);
+          })
+        }
+      }, function(error, map){
+        var blueprints_holder = $quarry.new('folder');
+
+        map.system.pourInto(blueprints_holder, true);
+
+        if(map.project.count()>0){
+          blueprints_holder.append(map.project, true)  
+        }
+        
+
+        callback(blueprints_holder);
+
+        
+      })
+    }
+
+    /*
+      The user bar at the top with their name and project list
+     */
+    function build_userbar(){
+
+      $('#topbar').userbar({
+        user:user
+      })
+      // they clicked their name
+      .bind('user', function(){
+        show_auth_window();
+      })
+      // the add project button on the bottom
+      .bind('addproject', function(){
+        
+      })
+      // they clicked the name of an actual project
+      .bind('project', function(e, index, project){
+        
+      })
+      
+      
+    }
+
+    /*
+      Entry point
+     */
+    if(!user.started){
+      show_auth_window();
+    }
+    else{
+      start_digger();
+    }
+  })
+})
+
+</script>

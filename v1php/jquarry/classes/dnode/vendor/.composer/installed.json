@@ -1,0 +1,42 @@
+[
+    {
+        "name": "evenement/evenement",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/igorw/evenement",
+            "reference": "e9bac9b3cc29bf807c55b26a973090ad7f1eb7e5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/igorw/evenement/zipball/e9bac9b3cc29bf807c55b26a973090ad7f1eb7e5",
+            "reference": "e9bac9b3cc29bf807c55b26a973090ad7f1eb7e5",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Igor Wiedler",
+                "email": "igor@wiedler.ch",
+                "homepage": "http://wiedler.ch/igor/"
+            }
+        ],
+        "description": "Événement is a very simple event dispatching library for PHP 5.3",
+        "keywords": [
+            "event-dispatcher"
+        ],
+        "autoload": {
+            "psr-0": {
+                "Evenement": "src"
+            }
+        }
+    }
+]

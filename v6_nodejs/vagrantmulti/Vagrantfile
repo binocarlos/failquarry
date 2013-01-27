@@ -1,0 +1,45 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant::Config.run do |config|
+
+  config.vm.define :master do |master_config|
+    master_config.vm.box = "quarryio_ubuntu_vagrant"
+    master_config.vm.box_url = "http://dl.dropbox.com/u/1537815/precise64.box"
+    master_config.vm.forward_port 80, 80
+    master_config.vm.forward_port 22, 2222
+    master_config.vm.network :hostonly, "192.168.33.11"
+    master_config.vm.share_folder "quarryio", "/srv/quarryio", '../', :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/)
+    master_config.vm.share_folder "node_modules", "/srv/node_modules", '../../', :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/)
+    master_config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/quarryio", "1"]
+    master_config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/node_modules", "1"]
+    config.vm.provision :shell, :path => "./provisionmaster.sh"
+  end
+
+  config.vm.define :instance1 do |instance1_config|
+    instance1_config.vm.box = "quarryio_ubuntu_vagrant"
+    instance1_config.vm.box_url = "http://dl.dropbox.com/u/1537815/precise64.box"
+    instance1_config.vm.forward_port 80, 80801
+    instance1_config.vm.forward_port 22, 22221
+    instance1_config.vm.network :hostonly, "192.168.33.21"
+    instance1_config.vm.share_folder "quarryio", "/srv/quarryio", '../', :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/)
+    instance1_config.vm.share_folder "node_modules", "/srv/node_modules", '../../', :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/)
+    instance1_config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/quarryio", "1"]
+    instance1_config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/node_modules", "1"]
+    config.vm.provision :shell, :path => "./provisioninstance.sh"
+  end
+
+#  config.vm.define :instance2 do |instance2_config|
+#    instance2_config.vm.box = "quarryio_ubuntu_vagrant"
+#    instance2_config.vm.box_url = "http://dl.dropbox.com/u/1537815/precise64.box"
+#    instance2_config.vm.forward_port 80, 80802
+#    instance2_config.vm.forward_port 22, 22222
+#    instance2_config.vm.network :hostonly, "192.168.33.22"
+#    instance2_config.vm.share_folder "quarryio", "/srv/quarryio", '../', :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/)
+#    instance2_config.vm.share_folder "node_modules", "/srv/node_modules", '../../', :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/)
+#    instance2_config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/quarryio", "1"]
+#    instance2_config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/node_modules", "1"]
+#    config.vm.provision :shell, :path => "./provisioninstance.sh"
+#  end
+
+end

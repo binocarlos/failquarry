@@ -1,0 +1,14 @@
+{
+	"name":"Generic System",
+	"domain":"dev.jquarry.com",
+	"domains":[
+		"dev.jquarry.com"
+	],
+	"drives":{
+		
+		"core":"",
+		"author":"",
+		"user":""
+			
+	}
+}

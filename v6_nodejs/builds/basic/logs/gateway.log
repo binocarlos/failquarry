@@ -1,0 +1,22 @@
+[lib/network/gateway.js:186] -------------------------------------------
+[lib/network/gateway.js:187] Gateway RPC server listening: 
+[36m{
+    [1mhttp[22m: [32m'80'[36m,
+    [1msub[22m: [32m'20920'[36m,
+    [1mrpc[22m: [32m'20900'[36m,
+    [1mpub[22m: [32m'20910'[36m
+}[36m[0m
+[lib/network/gateway.js:192] -------------------------------------------
+[lib/network/gateway.js:193] booting RPC
+[lib/network/zeromq/socket.js:81] -------------------------------------------
+[lib/network/zeromq/socket.js:82] Socket bind (router): tcp://127.0.0.1:20900
+[lib/network/gateway.js:197] -------------------------------------------
+[lib/network/gateway.js:198] booting PUBSUB
+[lib/network/zeromq/socket.js:81] -------------------------------------------
+[lib/network/zeromq/socket.js:82] Socket bind (pub): tcp://127.0.0.1:20910
+[lib/network/zeromq/socket.js:81] -------------------------------------------
+[lib/network/zeromq/socket.js:82] Socket bind (sub): tcp://127.0.0.1:20920
+[lib/network/gateway.js:202] -------------------------------------------
+[lib/network/gateway.js:203] booting HTTP
+[lib/network/local/booter.js:95] -------------------------------------------
+[lib/network/local/booter.js:96] gateway listening

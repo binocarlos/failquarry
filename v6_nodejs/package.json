@@ -1,0 +1,56 @@
+{
+  "name": "quarry.io",
+  "version": "0.0.4",
+  "description": "quarry.io database system",
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/binocarlos/quarry.io.git"
+  },
+  "keywords": [
+    "database"
+  ],
+  "scripts": {
+    "test": "make test",
+    "preinstall": "npm i -g component"
+  },
+  "dependencies": {
+    "lodash": "~0.8.2",
+    "underscore": "~1.4.2",
+    "async": "~0.1.22",
+    "eyes": "~0.1.8",
+    "xmldom": "~0.1.13",
+    "meta-fs": "0.0.1",
+    "zeromq-port": "0.0.1",
+    "mime": "~1.2.7",
+    "wrench": "~1.3.9",
+    "mongodb": "~1.1.11",
+    "restler": "~2.0.1",
+    "bigint": "~0.3.9",
+    "methods": "0.0.1",
+    "express": "~3.0.2",
+    "shell": "~0.2.7",
+    "socket.io-express": "0.0.1",
+    "connect-redis": "~1.4.5",
+    "redis": "~0.8.2",
+    "eventemitter2": "~0.4.11",
+    "console-trace": "~0.2.1",
+    "mocha": "~1.7.4",
+    "commander": "~1.1.1",
+    "colors": "~0.6.0-1",
+    "http-proxy": "~0.8.7",
+    "bouncy": "~2.0.3",
+    "passport": "~0.1.15",
+    "passport-twitter": "~0.1.4",
+    "passport-facebook": "~0.1.4",
+    "redback": "~0.3.2",
+    "session.socket.io": "~0.1.4",
+    "socket.io": "~0.9.13"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "author": "Kai Davenport",
+  "license": "GNU"
+}

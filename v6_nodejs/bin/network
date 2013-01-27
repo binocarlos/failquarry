@@ -1,0 +1,165 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var program = require('commander');
+var async = require('async');
+var eyes = require('eyes');
+var colors = require('colors');
+var version = require('../package.json').version;
+var io = require('../');
+var utils = require('../lib/server/utils');
+var fs = require('fs');
+var _ = require('underscore');
+
+var network_modes = {
+  development:true,
+  local:true
+}
+
+function build_network(){
+  var folder = _.isEmpty(program.dir) || program.dir=='./' ? process.cwd() : program.dir;
+
+  folder = folder.replace(/^\.\//, process.cwd() + '/');
+
+  folder = folder.replace(/\/$/, '');
+
+  utils.logevent('network: ' + folder);
+
+  if(!network_modes[program.mode]){
+    utils.logerror('mode: ' + program.mode + ' not found');
+    process.exit();
+  }
+
+  /*
+  
+    check for a network.json to make sense of our base folder
+    
+  */
+  if(!fs.existsSync(folder+'/network.json')){
+    utils.logerror('file: ' + folder + '/network.json not found!');
+    process.exit();
+  }
+
+  var network_config = {};//require(folder+'/network.json');
+
+  network_config.type = program.mode;
+
+  network_config.folder = folder.replace(/\/$/, '');
+  network_config.super_ports = {
+    http:program.http_proxy,
+    rpc:program.rpc_proxy,
+    pub:program.pub_proxy,
+    sub:program.sub_proxy
+  }
+
+  utils.logevent('loading network config (' + network_config.type + '): ' + folder+'/network.json')
+
+  var network = io.network(network_config.type, network_config)
+    .on('message', function(message){
+      utils.logger(message);
+    })
+    .on('error', function(message, exit){
+      utils.logerror(error);
+      exit && process.exit();
+    })
+
+  return network;
+}
+
+utils.banner('quarry.io network ' + version);
+
+program
+  .version(version)
+  .option('-m, --mode <development|local|cloud>', 'what mode to run this network in', 'development')
+  .option('-a, --autotail', 'start tailing the logs after starting (local network only)', 'no')
+  .option('-h, --http_proxy <port>', 'Port number for the HTTP Proxy', '80')
+  .option('-r, --rpc_proxy <port>', 'Port number for the RPC Proxy', '20900')
+  .option('-p, --pub_proxy <port>', 'Port number for the PUB Proxy', '20910')
+  .option('-s, --sub_proxy <port>', 'Port number for the SUB Proxy', '20920')
+  .option('-d, --dir <folder>', 'the location of the network folder', './')
+
+program
+  .command('start')
+  
+  .description('start a quarry network')
+  .action(function(env){
+
+    var network = build_network();
+
+    if(network.isrunning()){
+      utils.logerror('network is already running - please stop it first');
+      process.exit(); 
+    }
+
+    network.ensure_folders(function(){
+      network.start(function(network){
+        utils.logevent('network is started');
+
+        if(program.autotail){
+          network.debug();
+        }
+      })
+    })
+
+    
+  })
+
+program
+  .command('stop')
+  .description('stop a quarry network')
+  .action(function(env){
+    var network = build_network();
+
+    network.stop(function(network){
+      utils.logevent('network is stopped');
+    })
+  })
+
+program
+  .command('restart')
+  .description('restart a quarry network')
+  .action(function(env){
+    var network = build_network();
+
+    network.stop(function(){
+      utils.logevent('network is stopped');
+      network.ensure_folders(function(){
+        network.start(function(){
+          utils.logevent('network is started');
+
+          if(program.autotail){
+            network.debug();
+          }
+        })
+      })
+    })
+  })  
+
+program
+  .command('status')
+  .description('status of a quarry network')
+  .action(function(env){
+    var network = build_network();
+
+    network.status();
+  })
+
+program
+  .command('debug')
+  .description('merge all stdouts to here')
+  .action(function(env){
+    var network = build_network();
+
+    network.debug();
+  })
+
+program
+  .command('*')
+  .action(function(command){
+    console.log('command: "%s" not found', command);
+  })
+
+program.parse(process.argv);

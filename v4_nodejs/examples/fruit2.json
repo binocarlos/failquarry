@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Apples",
+        "_meta":{
+            "tagname":"fruit",
+            "classnames":{
+
+            }
+        }
+    },
+    {
+        "name": "Peaches",
+        "_meta":{
+            "tagname":"fruit",
+            "classnames":{
+
+            }
+        }
+    },
+    {
+        "name": "Lemon",
+        "_meta":{
+            "tagname":"fruit",
+            "classnames":{
+                "citrus":true
+            }
+        }
+    },
+    {
+        "name": "Lime",
+        "_meta":{
+            "tagname":"fruit",
+            "classnames":{
+                "citrus":true
+            }
+        }
+    }
+]

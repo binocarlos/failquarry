@@ -1,0 +1,10 @@
+#!/bin/bash
+
+JSENGINE=/root/nvm/v0.6.14/bin/node
+REQUIREJS=js/lib/requirejs/r.js
+BOOTSTRAP=js/system/bootstrap/test.js
+
+#production
+#development
+
+NODE_ENV=development $JSENGINE $REQUIREJS $BOOTSTRAP

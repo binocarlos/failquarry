@@ -1,0 +1,5 @@
+{
+	"name":"Quarry Webserver",
+	"view_root":"system:/server/http/webserver/view",
+	"port":7770
+}

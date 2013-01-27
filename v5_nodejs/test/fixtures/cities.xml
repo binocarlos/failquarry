@@ -1,0 +1,35 @@
+<folder id="places" quarryid="4cc97507-3cf5-4161-af3e-dc31dff8afd1">
+	<country quarryid="533d6a74-f161-4b63-86fd-801ff42aa14c" class="big apples" name="UK">
+		<city quarryid="20b935e7-d1bc-4f2a-b40b-ee893f1f39cc" class="south" name="Bristol" team="Bristol City">
+			<area quarryid="2b7fd597-871d-436f-a703-1e1ebfb79837" class="poor" name="St. Pauls" population="103" />
+			<area quarryid="101b5c8e-ab42-4621-9042-29637d2dde0d" class="rich" name="Redland" population="79" />
+			<area quarryid="54c75253-56d2-4019-9569-63f538003ef6" class="poor" name="Easton" population="38" />
+		</city>
+		<city quarryid="c5b2e1c1-84c1-478d-a580-3a7459a1c7a3" class="south" name="London" team="Arsenal">
+			<area quarryid="dbf397f7-98c5-4f91-be56-7b49a2787a3e" class="rich" name="Westminster" population="298" />
+			<area quarryid="7e907788-0fda-448b-8d98-a0e16ba1aeb5" class="rich" name="Ealing" population="98" />
+			<area quarryid="8869cbda-dcd0-4d6d-8049-74322601f0c2" class="poor" name="Woolwich" population="68" />
+		</city>
+		<city quarryid="489fd84a-f512-4561-af72-02fa21f91423" class="midlands" name="Birmingham" team="Ason Villa">
+			<area quarryid="1dd1333a-491e-442a-9944-c6a9773ad6a1" class="rich" name="Edgbaston" population="183" />
+		</city>
+		<city quarryid="951941e5-dfb1-40d7-8dd3-e91351e54031" class="midlands" name="Nottingham" team="Nottingham Forest">
+			<area quarryid="17d3a7c4-03fb-429a-9fae-cb3c443d4c6d" class="rich" name="Edgbaston" population="183" />
+		</city>
+		<city quarryid="5adc02f4-7f56-49c1-99b6-3876baf408b5" class="north" name="Liverpool" team="Everton">
+			<area quarryid="7c853dae-af07-4c71-975a-e222e4898ecb" class="poor" name="Everton" population="89" />
+		</city>
+		<city quarryid="ea9280b8-bcc8-42df-92d1-70a177be91f7" class="north" name="Middlesbrough" team="Middlesbrough">
+			<area quarryid="a2e256d8-626c-4549-a72e-b21b72824b64" class="rich" name="Linthorpe" population="28" />
+			<area quarryid="1bd68e75-55b5-435d-853a-ddaad18758c1" class="poor" name="Grangetown" population="39" />
+		</city>
+	</country>
+	<country quarryid="430552c8-1c2c-4fe8-a29b-aab8800ef478" class="big" name="Scotland">
+		<city quarryid="deb5d0cf-d4f4-455c-b624-4072cf812e58" class="north" name="Aberdeen" team="Aberdeen">
+			<area quarryid="26dedfa9-bc4a-4b10-a4c3-27f26dd7fe98" class="poor" name="Harbourside" population="39" />
+		</city>
+		<city quarryid="63874097-e9cc-4657-a5a9-5e684ec581df" class="south" name="Edinburgh" team="Hearts">
+			<area quarryid="29204026-75aa-4388-948f-71fe08926aeb" class="rich" name="Meadows" population="97" />
+		</city>
+	</country>
+</folder>

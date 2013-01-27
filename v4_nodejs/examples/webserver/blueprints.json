@@ -1,0 +1,79 @@
+[
+    {
+        "name": "Folder",
+        "_meta": {
+            "tagname": "blueprint",
+            "quarryid": "b2987102-8f59-45ee-87bb-a637da5b927f"
+        },
+        "stub": {
+            "_meta": {
+                "tagname": "folder"
+            }
+        },
+        "fields": [
+            {
+                "field": "name",
+                "required": true
+            }
+        ],
+        "_children": []
+    },
+    {
+        "name": "Image",
+        "_meta": {
+            "tagname": "blueprint",
+            "quarryid": "7aefcaf6-5e82-403e-a329-3391dd8e79b8"
+        },
+        "stub": {
+            "_meta": {
+                "tagname": "image"
+            }
+        },
+        "fields": [
+            {
+                "field": "image",
+                "type": "image"
+            }
+        ],
+        "_children": []
+    },
+    {
+        "name": "E-Commerce",
+        "_meta": {
+            "tagname": "folder",
+            "quarryid": "772cab46-ed6d-4464-81da-e35ac07697f1"
+        },
+        "_children": [
+            {
+                "name": "Product",
+                "_meta": {
+                    "tagname": "blueprint",
+                    "quarryid": "4434bb53-3d22-4133-993c-a1711c3d6e3b"
+                },
+                "stub": {
+                    "_meta": {
+                        "tagname": "product"
+                    }
+                },
+                "fields": [
+                    {
+                        "field": "name",
+                        "required": "true"
+                    },
+                    {
+                        "field": "price",
+                        "required": "true",
+                        "rules": [
+                            "money"
+                        ]
+                    },
+                    {
+                        "field": "image",
+                        "type": "image"
+                    }
+                ],
+                "_children": []
+            }
+        ]
+    }
+]

@@ -1,0 +1,4 @@
+<folder id="folder" quarryid="93985572-6fcf-4149-9ffe-af090d46c286" name="dbs">
+	<warehouse id="citiesxml" quarryid="36521120-315c-469c-9f53-68925465d9b5" route="quarry://ram.quarry.io/cities.xml" class="db" name="XML Cities" />
+	<warehouse id="citiesjson" quarryid="36521120-315c-469c-9f53-68925465d9b5" route="quarry://ram.quarry.io/cities.json" class="db" name="JSON Cities" />
+</folder>

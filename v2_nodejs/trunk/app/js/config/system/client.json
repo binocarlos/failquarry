@@ -1,0 +1,11 @@
+{
+	"name":"Client System",
+	
+	"drives":{
+		
+		"core":"/_quarry/core",
+		"author":"/_quarry/authors",
+		"user":"/_quarry/users"
+		
+	}
+}

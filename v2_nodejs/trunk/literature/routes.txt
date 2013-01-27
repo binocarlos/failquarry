@@ -1,0 +1,67 @@
+Routes
+
+Map of the servers running and what ports they route to:
+
+
+------------------------------------------------------------
+
+Name:			HAProxy
+Tech:			haproxy
+Config:			/etc/haproxy/haproxy.cfg
+Port:			80
+Init Script:	/etc/init.d/haproxy
+Desc:			The front end proxy - decides between quarryweb server / PHP web server or socket server
+
+------------------------------------------------------------
+
+Name:			Nginx PHP
+Tech:			Nginx
+Config:			/etc/nginx/sites-enabled/quarryproxy
+Port:			5550
+Init Script:	/etc/init.d/nginx start|stop|restart
+Desc:			Nginx proxy to any PHP app that is running
+
+------------------------------------------------------------
+
+Name:			PHP_FPM Admin
+Tech:			PHP_FPM
+Config:			/etc/php5/fpm/pool.d/www.conf
+Port:			5551
+Init Script:	/etc/init.d/php_fpm start|stop|restart
+Desc:			PHP server running our admin interface sites
+
+------------------------------------------------------------
+
+Name:			Web Server
+Tech:			node.js / http
+Port:			7770
+Script:			bin/webserver
+Init Script:	start|stop|restart quarryweb
+Desc:			The customers web-server - this will server up quarry web-sites from customers FTP folders
+
+------------------------------------------------------------
+
+Name:			Reception Server
+Tech:			node.js / http
+Port:			7330
+Script:			bin/reception
+Desc:			The front end 'hello world' & registration web application
+
+------------------------------------------------------------
+
+Name:			QuarryScript
+Tech:			node.js / dnode
+Port:			9400
+Script:			bin/quarryscript
+Desc:			The quarry script processing server
+
+------------------------------------------------------------
+
+Name:			Registry
+Tech:			node.js / dnode
+Port:			7500
+Script:			bin/registry
+Desc:			The central registry for customers websites
+
+
+

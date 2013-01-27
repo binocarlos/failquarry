@@ -1,0 +1,43 @@
+[node_modules/socket.io/lib/logger.js:78] info: socket.io started
+[lib/webserver/website.js:79] -------------------------------------------
+[lib/webserver/website.js:80] running auth mixin: configure
+[lib/webserver/website.js:79] -------------------------------------------
+[lib/webserver/website.js:80] running warehouse mixin: configure
+[lib/webserver/website.js:134] -------------------------------------------
+[lib/webserver/website.js:135] setting document root: /srv/quarryio/examples/networks/basic/stacks/dev.jquarry.com/websites/default/www
+[lib/webserver/website.js:79] -------------------------------------------
+[lib/webserver/website.js:80] running auth mixin: route
+[lib/network/zeromq/socket.js:91] -------------------------------------------
+[lib/network/zeromq/socket.js:92] Socket connect (pub): tcp://127.0.0.1:20920
+[lib/network/zeromq/socket.js:91] -------------------------------------------
+[lib/network/zeromq/socket.js:92] Socket connect (sub): tcp://127.0.0.1:20910
+[lib/webserver/mixins/auth/index.js:205] -------------------------------------------
+[lib/webserver/mixins/auth/index.js:206] mounting: facebook
+[lib/webserver/mixins/auth/index.js:205] -------------------------------------------
+[lib/webserver/mixins/auth/index.js:206] mounting: twitter
+[lib/webserver/website.js:79] -------------------------------------------
+[lib/webserver/website.js:80] running api mixin: route
+[lib/webserver/website.js:79] -------------------------------------------
+[lib/webserver/website.js:80] running warehouse mixin: route
+[lib/webserver/proto.js:154] -------------------------------------------
+[lib/webserver/proto.js:155] mapping domain
+[36m[32m'dev.jquarry.com'[36m[36m[0m
+[lib/webserver/proto.js:154] -------------------------------------------
+[lib/webserver/proto.js:155] mapping domain
+[36m[32m'*.dev.jquarry.com'[36m[36m[0m
+[lib/webserver/proto.js:154] -------------------------------------------
+[lib/webserver/proto.js:155] mapping domain
+[36m[32m'localhost'[36m[36m[0m
+[lib/webserver/proto.js:154] -------------------------------------------
+[lib/webserver/proto.js:155] mapping domain
+[36m[32m'localhost:8080'[36m[36m[0m
+[lib/webserver/proto.js:154] -------------------------------------------
+[lib/webserver/proto.js:155] mapping domain
+[36m[32m'192.168.1.182'[36m[36m[0m
+[lib/webserver/proto.js:102] -------------------------------------------
+[lib/webserver/proto.js:103] -------------------------------------------
+[lib/webserver/proto.js:104] web server binding on port: [31m21004[39m
+[lib/network/local/booter.js:63] -------------------------------------------
+[lib/network/local/booter.js:64] webserver listening
+[lib/network/zeromq/socket.js:91] -------------------------------------------
+[lib/network/zeromq/socket.js:92] Socket connect (dealer): tcp://127.0.0.1:21033

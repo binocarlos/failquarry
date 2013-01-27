@@ -1,0 +1,14 @@
+[
+    {
+        "_meta": {
+            "id": null,
+            "quarryid": "5110267c-03ea-48b6-159d-1d53297df713",
+            "tag": "supplier",
+            "classNames": {},
+            "supplier": "quarrydb",
+            "database": "bob"
+        },
+        "name": "QuarryDB",
+        "_children": []
+    }
+]

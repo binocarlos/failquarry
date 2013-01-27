@@ -1,0 +1,8 @@
+{
+	"type":"provider",
+	"driver":"database.quarrydb",
+	"database":"quarrydb",
+	"collection_prepend":"jquarry_",
+  "host":"127.0.0.1",
+  "port":27017
+}

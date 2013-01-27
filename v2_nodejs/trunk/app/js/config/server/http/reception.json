@@ -1,0 +1,30 @@
+{
+	"name":"Reception Webserver",
+	"port":7330,
+	"document_root":"system:/server/http/reception/www",
+	"view_root":"system:/server/http/reception/view",
+	"auth":{
+		"facebook":{
+			"id":"235139659919776",
+			"secret":"560bdc68d3d03020c709785ec0381a54"
+		},
+		"twitter":{
+			"key":"mienJfG4zeERhg8zZIvvg",
+			"secret":"5z4E48dOVUWv6IuuWwOdsdyew9yuD2XLNsTZG1UcYw"
+		},
+		"dropbox":{
+			"key":"aia6wt68z2bn1t3",
+			"secret":"mfgw9xh0zdkgth5"
+		},
+		"password":{
+			"login_path":"/login",
+			"post_login_path":"/login",
+			"login_view":"login.htm",
+			"login_success_redirect":"/",
+			"register_path":"/register",
+			"post_register_path":"/register",
+			"register_view":"register.htm",
+			"register_success_redirect":"/"
+		}
+	}
+}

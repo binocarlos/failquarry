@@ -1,0 +1,35 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# the folder on linux we are going to map
+$home = "/srv/quarryio"
+
+Vagrant::Config.run do |config|
+
+  # the name of our dev box inside of vagrant cache
+  config.vm.box = "quarryio_ubuntu_vagrant"
+  
+  # Ubuntu 12.04.1 LTS x86_64 (Guest Additions 4.1.18)
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+
+  # you can turn this on to trust that it is just virtual box underneath
+  #config.vm.boot_mode = :gui
+
+  # IP - this boots as a hostonly network with the given IP
+  # port 80 is mapped to your local windows host - you should not need another port
+  # apart from 80 - if you do, use port mapping below instead
+  config.vm.network :hostonly, "192.168.33.11"
+
+  # port mapping - forward ports from the Linux VM onto your windows box
+  config.vm.forward_port 80, 80
+  config.vm.forward_port 22, 2222
+
+  # triggers a shared folder so that this SVN repo (../ from here) is shared to /srv/camelot on the Linux box
+  config.vm.share_folder "quarryio", "/srv/quarryio", '../', :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/), :nfs_version => 4
+  config.vm.share_folder "node_modules", "/srv/node_modules", '../../', :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/), :nfs_version => 4
+  config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/quarryio", "1"]
+  config.vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/node_modules", "1"]
+  
+  # runs /bin/install.sh
+  config.vm.provision :shell, :path => "./provision.sh"
+end

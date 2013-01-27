@@ -1,0 +1,6 @@
+{
+	"name":"QuarryScript processor",
+	"pool":{
+		"size":10
+	}
+}

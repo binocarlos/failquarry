@@ -1,0 +1,45 @@
+<%
+	page.set({
+		"menu":[
+			{
+				title:"Home",
+				link:"/"
+			},
+			{
+				title:"What is it?",
+				link:"/about"
+			},
+			{
+				title:"How much is it?",
+				link:"/pricing",
+				active:true
+			},
+			{
+				title:"FAQs",
+				link:"/faqs"
+			}
+		],
+		"heading":"Very Cheap!",
+		"strapline":"quarry.js is probably cheaper than your current host...",
+		"share":true
+	});
+	
+%>
+          <!--left col-->
+          <div class="span10">
+
+it is not very expensive.
+
+          </div>
+          <!--end col-->
+
+
+
+          <!--right col-->
+          <div class="span4">
+
+<%- partial("connect") %>
+
+
+          </div>
+          <!--end col-->

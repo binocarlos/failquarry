@@ -1,0 +1,6 @@
+{
+	"type":"provider",
+	"driver":"ram.file",
+	"directory":"/xmlfiles",
+	"format":"xml"
+}

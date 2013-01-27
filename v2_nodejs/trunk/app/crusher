@@ -1,0 +1,6 @@
+#!/bin/bash
+
+JSENGINE=/root/nvm/v0.6.14/bin/node
+BOOTSTRAP=js/system/bootstrap/crusher.js
+
+$JSENGINE $BOOTSTRAP $1

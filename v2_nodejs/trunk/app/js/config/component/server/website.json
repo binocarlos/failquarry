@@ -1,0 +1,9 @@
+{
+	"name":"Website Component",
+	
+	"holdingPage":"resource:/holdingpage.htm",
+	
+	"aliases":{
+		"/_quarry/":"system:/"
+	}
+}

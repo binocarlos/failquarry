@@ -1,0 +1,83 @@
+[
+    {
+        "_meta": {
+            "id": null,
+            "quarryid": "1a851ba7-d8db-7d3d-37e2-0f680b8acd47",
+            "tag": "folder",
+            "classNames": {}
+        },
+        "name": "File Based",
+        "_children": [
+            {
+                "_meta": {
+                    "id": null,
+                    "quarryid": "5110267c-03ea-48b6-159d-1d533f7df713",
+                    "tag": "supplier",
+                    "classNames": {
+                        "json": true,
+                        "shop": true,
+                        "pears": true,
+                        "apples": true
+                    },
+                    "supplier": "json",
+                    "file": "/srv/git/jquarry/examples/shop.json"
+                },
+                "name": "My Test JSON Tree",
+                "_children": []
+            },
+            {
+                "_meta": {
+                    "id": null,
+                    "quarryid": "939fb7c2-653a-d575-457f-a1a948576531",
+                    "tag": "supplier",
+                    "classNames": {
+                        "city": true
+                    },
+                    "supplier": "json",
+                    "file": "/srv/git/jquarry/examples/shop2.json"
+                },
+                "name": "My Test JSON Tree 2",
+                "_children": []
+            },
+            {
+                "_meta": {
+                    "id": null,
+                    "quarryid": "dbaeaa99-652a-2632-d28e-e5b299c794d8",
+                    "tag": "supplier",
+                    "classNames": {
+                        "file": true
+                    },
+                    "supplier": "filesystem",
+                    "directory": "/srv/git/jquarry/examples"
+                },
+                "name": "My Test File Tree",
+                "_children": []
+            }
+        ]
+    },
+    {
+        "_meta": {
+            "id": null,
+            "quarryid": "1a851ba7-d8db-7d3d-37e2-0f680b8a8347",
+            "tag": "folder",
+            "classNames": {}
+        },
+        "name": "Database Based",
+        "_children": [
+            {
+                "_meta": {
+                    "id": null,
+                    "quarryid": "5110267c-03ea-48b6-159d-1d53297df713",
+                    "tag": "supplier",
+                    "classNames": {
+                        "quarrydb":true
+                    },
+                    "supplier": "quarrydb",
+                    "database": "bob"
+                },
+                "name": "Bobs QuarryDB",
+                "_children": []
+            }
+        ]
+    }
+]

@@ -1,0 +1,75 @@
+﻿Supplier Types
+
+Example Contracts:
+
+// list all the directories in the top level of a website
+website:/ > directory
+
+// load all files and directories in a website as a tree
+tree(website:/*)
+
+// load all products less than 100 price and all friends name ends in s
+product[price<100], facebook:/friend[name$=s]
+
+Filesystem:
+
+	Driver for loading files and directories into a quarry container
+	
+	Drives - directory locations resolved by the system - the user must have access but then that is always assumed anyway
+	
+		website:[name]:/
+		widget:[name]:/
+		
+	Item Types:
+	
+		file
+		
+		directory
+			file
+		
+	File Classnames:
+	
+		.image (jpg, png etc)
+		.code (js, css etc)
+		.data (json, xml etc)
+		
+	Properties:
+	
+		name (helloworld.txt)
+		path (/mydirectory/helloworld.txt) (the path is ALWAYS relative to the root of the filesystem supplier)
+		size (34343 bytes)
+		ext  (png, htm)
+		modified (epoch)
+		 	
+Database:
+
+	Driver for loading elements from the Mongo Store
+	
+	Drives - the database is the default supplier so if none is mentioned it will use this
+	
+		database:[name]:/product
+		[name]:/product
+		product
+		
+	Item Types:
+	
+		based on the models
+		
+	Classnames:
+	
+		based on the data
+		
+	Properties
+	
+		based on the data
+		
+Facebook:
+
+	Drives:
+	
+		facebook:/
+		
+	Item Types
+	
+		friend
+		

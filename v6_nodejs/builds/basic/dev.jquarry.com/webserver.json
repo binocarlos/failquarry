@@ -1,0 +1,229 @@
+{
+    "ports": {
+        "rpc": 21001,
+        "pub": 21002,
+        "sub": 21003,
+        "http": 21004
+    },
+    "websites": {
+        "default": {
+            "id": "dev.jquarry.com",
+            "title": "First Test Website",
+            "document_root": "www",
+            "scripts": "scripts",
+            "middleware": "middleware",
+            "cookie_secret": "rodneybatman",
+            "hostnames": [
+                "dev.jquarry.com",
+                "*.dev.jquarry.com",
+                "localhost",
+                "localhost:8080",
+                "192.168.1.182"
+            ],
+            "routes": {
+                "quarry": "/quarry",
+                "api": "/apiv1"
+            },
+            "mixins": [
+                {
+                    "name": "auth",
+                    "config": {
+                        "route": "/auth",
+                        "success_route": "/",
+                        "failure_route": "/login",
+                        "hostname": "dev.jquarry.com",
+                        "providers": {
+                            "facebook": {
+                                "driver": "oauth2",
+                                "key": "235139659919776",
+                                "secret": "560bdc68d3d03020c709785ec0381a54"
+                            },
+                            "twitter": {
+                                "driver": "oauth2",
+                                "key": "mienJfG4zeERhg8zZIvvg",
+                                "secret": "5z4E48dOVUWv6IuuWwOdsdyew9yuD2XLNsTZG1UcYw"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "api",
+                    "config": {
+                        "route": "/apiv1"
+                    }
+                },
+                {
+                    "name": "warehouse",
+                    "config": {
+                        "rpcroute": "/",
+                        "httproute": "/quarry.io"
+                    }
+                }
+            ],
+            "directory": "/srv/quarryio/examples/networks/basic/stacks/dev.jquarry.com/websites/default"
+        }
+    },
+    "client": {
+        "stack_id": "dev.jquarry.com",
+        "network": {
+            "type": "local",
+            "folder": "/srv/quarryio/examples/networks/basic",
+            "super_ports": {
+                "http": "80",
+                "rpc": "20900",
+                "pub": "20910",
+                "sub": "20920"
+            },
+            "resources": {
+                "cache": {
+                    "driver": "redis",
+                    "hostname": "127.0.0.1",
+                    "port": 6379
+                },
+                "localfiles": "/srv/quarryio/examples/networks/basic/resources/files"
+            },
+            "ports": {
+                "http": "80",
+                "rpc": "20900",
+                "pub": "20910",
+                "sub": "20920"
+            }
+        },
+        "allocations": {
+            "/database/quarry/": {
+                "stack_id": "dev.jquarry.com",
+                "instance_id": "local",
+                "instance": {
+                    "id": "local",
+                    "hostname": "127.0.0.1"
+                },
+                "node_id": "/database/quarry/",
+                "ports": {
+                    "rpc": 21005,
+                    "pub": 21006,
+                    "sub": 21007,
+                    "http": 21008
+                }
+            },
+            "/filesystem/directory/": {
+                "stack_id": "dev.jquarry.com",
+                "instance_id": "local",
+                "instance": {
+                    "id": "local",
+                    "hostname": "127.0.0.1"
+                },
+                "node_id": "/filesystem/directory/",
+                "ports": {
+                    "rpc": 21009,
+                    "pub": 21010,
+                    "sub": 21011,
+                    "http": 21012
+                }
+            },
+            "/ram/file/json/": {
+                "stack_id": "dev.jquarry.com",
+                "instance_id": "local",
+                "instance": {
+                    "id": "local",
+                    "hostname": "127.0.0.1"
+                },
+                "node_id": "/ram/file/json/",
+                "ports": {
+                    "rpc": 21013,
+                    "pub": 21014,
+                    "sub": 21015,
+                    "http": 21016
+                }
+            },
+            "/ram/file/xml/": {
+                "stack_id": "dev.jquarry.com",
+                "instance_id": "local",
+                "instance": {
+                    "id": "local",
+                    "hostname": "127.0.0.1"
+                },
+                "node_id": "/ram/file/xml/",
+                "ports": {
+                    "rpc": 21017,
+                    "pub": 21018,
+                    "sub": 21019,
+                    "http": 21020
+                }
+            },
+            "/auth/": {
+                "stack_id": "dev.jquarry.com",
+                "instance_id": "local",
+                "instance": {
+                    "id": "local",
+                    "hostname": "127.0.0.1"
+                },
+                "node_id": "/auth/",
+                "ports": {
+                    "rpc": 21021,
+                    "pub": 21022,
+                    "sub": 21023,
+                    "http": 21024
+                }
+            },
+            "/reception/": {
+                "stack_id": "dev.jquarry.com",
+                "instance_id": "local",
+                "instance": {
+                    "id": "local",
+                    "hostname": "127.0.0.1"
+                },
+                "node_id": "/reception/",
+                "ports": {
+                    "rpc": 21025,
+                    "pub": 21026,
+                    "sub": 21027,
+                    "http": 21028
+                }
+            },
+            "/system/databases/": {
+                "stack_id": "dev.jquarry.com",
+                "instance_id": "local",
+                "instance": {
+                    "id": "local",
+                    "hostname": "127.0.0.1"
+                },
+                "node_id": "/system/databases/",
+                "ports": {
+                    "rpc": 21029,
+                    "pub": 21030,
+                    "sub": 21031,
+                    "http": 21032
+                }
+            },
+            "/": {
+                "stack_id": "dev.jquarry.com",
+                "instance_id": "local",
+                "instance": {
+                    "id": "local",
+                    "hostname": "127.0.0.1"
+                },
+                "node_id": "/",
+                "ports": {
+                    "rpc": 21033,
+                    "pub": 21034,
+                    "sub": 21035,
+                    "http": 21036
+                }
+            }
+        },
+        "webserver": {
+            "stack_id": "dev.jquarry.com",
+            "instance_id": "local",
+            "instance": {
+                "id": "local",
+                "hostname": "127.0.0.1"
+            },
+            "ports": {
+                "rpc": 21001,
+                "pub": 21002,
+                "sub": 21003,
+                "http": 21004
+            }
+        }
+    }
+}

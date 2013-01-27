@@ -1,0 +1,45 @@
+<container>
+
+	<folder id="places" quarryid="4cc975073cf54161af3edc31dff8afd1" routes="{}" class="hello">
+		<country quarryid="533d6a74f1614b6386fd801ff42aa14c" routes="{}" class="big apples" name="UK">
+			<city quarryid="20b935e7d1bc4f2ab40bee893f1f39cc" routes="{'stamp':'/ram/file/xml/cities'}" class="south" name="Bristol" team="Bristol City">
+				<area quarryid="2b7fd597871d436fa7031e1ebfb79837" routes="{}" class="poor" name="St. Pauls" population="103" />
+				<area quarryid="101b5c8eab424621904229637d2dde0d" routes="{}" class="rich" name="Redland" population="79" />
+				<area quarryid="54c7525356d24019956963f538003ef6" routes="{}" class="poor" name="Easton" population="38" />
+			</city>
+			<city quarryid="c5b2e1c184c1478da5803a7459a1c7a3" routes="{}" class="south" name="London" team="Arsenal">
+				<area quarryid="dbf397f798c54f91be567b49a2787a3e" routes="{}" class="rich" name="Westminster" population="298" />
+				<area quarryid="7e9077880fda448b8d98a0e16ba1aeb5" routes="{}" class="rich" name="Ealing" population="98" />
+				<area quarryid="8869cbdadcd04d6d804974322601f0c2" routes="{}" class="poor" name="Woolwich" population="68" />
+			</city>
+			<city quarryid="489fd84af5124561af7202fa21f91423" routes="{'stamp':'/ram/file/xml/cities'}" class="midlands" name="Birmingham" team="Ason Villa">
+				<area quarryid="1dd1333a491e442a9944c6a9773ad6a1" routes="{}" class="rich" name="Edgbaston" population="183" />
+			</city>
+			<city quarryid="951941e5dfb140d78dd3e91351e54031" routes="{}" class="midlands" name="Nottingham" team="Nottingham Forest">
+				<area quarryid="17d3a7c403fb429a9faecb3c443d4c6d" routes="{}" class="rich" name="Edgbaston" population="183" />
+			</city>
+			<city quarryid="5adc02f47f5649c199b63876baf408b5" routes="{}" class="north" name="Liverpool" team="Everton">
+				<area quarryid="7c853daeaf074c71975ae222e4898ecb" routes="{}" class="poor" name="Everton" population="89" />
+			</city>
+			<city quarryid="ea9280b8bcc842df92d170a177be91f7" routes="{}" class="north" name="Middlesbrough" team="Middlesbrough">
+				<area quarryid="a2e256d8626c4549a72eb21b72824b64" routes="{}" class="rich" name="Linthorpe" population="28" />
+				<area quarryid="1bd68e7555b5435d853addaad18758c1" routes="{}" class="poor" name="Grangetown" population="39" />
+			</city>
+		</country>
+		<country quarryid="430552c81c2c4fe8a29baab8800ef478" routes="{}" class="big" name="Scotland">
+			<city quarryid="deb5d0cfd4f4455cb6244072cf812e58" routes="{}" class="north" name="Aberdeen" team="Aberdeen">
+				<area quarryid="26dedfa9bc4a4b10a4c327f26dd7fe98" routes="{}" class="poor" name="Harbourside" population="39" />
+			</city>
+			<city quarryid="63874097e9cc4657a5a95e684ec581df" routes="{}" class="south" name="Edinburgh" team="Hearts">
+				<area quarryid="2920402675aa4388948f71fe08926aeb" routes="{}" class="rich" name="Meadows" population="97" />
+			</city>
+		</country>
+	</folder>
+
+	<folder id="usalink" quarryid="2920402675aa4388948f71fe0892648b" routes="{'post':'/ram/file/xml/usacities/'}" class="usa" />
+
+	<folder id="quarrylink" quarryid="2920402675297488948f71fe0892648b" routes="{'post':'/database/quarry/francecities/'}" class="france" />
+
+	<folder id="folderlink" quarryid="2929702675297488948f71fe0892648b" routes="{'post':'/filesystem/directory/test/'}" class="germany" />
+
+</container>

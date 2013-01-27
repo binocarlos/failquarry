@@ -1,0 +1,35 @@
+<folder id="places">
+	<country class="big apples" name="UK">
+		<city class="south" name="Bristol" team="Bristol City">
+			<area name="St. Pauls" class="poor" population="103" />
+			<area name="Redland" class="rich" population="79" />
+			<area name="Easton" class="poor" population="38" />
+		</city>
+		<city class="south" name="London" team="Arsenal">
+			<area name="Westminster" class="rich" population="298" />
+			<area name="Ealing" class="rich" population="98" />
+			<area name="Woolwich" class="poor" population="68" />
+		</city>
+		<city class="midlands" name="Birmingham" team="Ason Villa">
+			<area name="Edgbaston" class="rich" population="183" />
+		</city>
+		<city class="midlands" name="Nottingham" team="Nottingham Forest">
+			<area name="Edgbaston" class="rich" population="183" />
+		</city>
+		<city class="north" name="Liverpool" team="Everton">
+			<area name="Everton" class="poor" population="89" />
+		</city>
+		<city class="north" name="Middlesbrough" team="Middlesbrough">
+			<area name="Linthorpe" class="rich" population="28" />
+			<area name="Grangetown" class="poor" population="39" />
+		</city>
+	</country>
+	<country class="big" name="Scotland">
+		<city class="north" name="Aberdeen" team="Aberdeen">
+			<area name="Harbourside" class="poor" population="39" />
+		</city>
+		<city class="south" name="Edinburgh" team="Hearts">
+			<area name="Meadows" class="rich" population="97" />
+		</city>
+	</country>
+</folder>

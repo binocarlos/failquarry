@@ -1,0 +1,22 @@
+{
+	"hostname":"dev2.jquarry.com",
+	"redis_port":6379,
+	"redis_host":"127.0.0.1",
+	"cookiesecret":"rodneybatman",
+	"auth":{
+		"providers":{
+			"facebook":{
+				"clientID":"235139659919776",
+				"clientSecret":"560bdc68d3d03020c709785ec0381a54"
+			},
+			"twitter":{
+				"consumerKey":"mienJfG4zeERhg8zZIvvg",
+				"consumerSecret":"5z4E48dOVUWv6IuuWwOdsdyew9yuD2XLNsTZG1UcYw"
+			}
+		},
+		"dropbox":{
+			"key":"aia6wt68z2bn1t3",
+			"secret":"mfgw9xh0zdkgth5"
+		}
+	}
+}

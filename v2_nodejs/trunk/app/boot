@@ -1,0 +1,16 @@
+#!/bin/bash
+
+JSENGINE=/root/nvm/v0.6.14/bin/node
+REQUIREJS=js/lib/requirejs/r.js
+BOOTSTRAP=js/system/bootstrap/server.js
+
+#production
+#development
+
+if [ "$2" == "dev" ]; then
+	NODE_ENV=development
+else
+	NODE_ENV=production
+fi
+
+QUARRY_SERVER=$1 NODE_ENV=$NODE_ENV $JSENGINE $REQUIREJS $BOOTSTRAP

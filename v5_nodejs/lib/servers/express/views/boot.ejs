@@ -1,0 +1,20 @@
+window._$quarry_config = {
+	hostname:'<%- hostname %>',
+	user:<%- JSON.stringify(user || {}, null, 4) %>,
+	permissions:<%- JSON.stringify(permissions || {}, null, 4) %>,
+	production:<%- production %>,
+	auth_providers:<%- JSON.stringify(auth_providers, null, 4) %>
+}
+
+/*
+	Write socket.io
+ */
+
+document.write('<script src="//<%- hostname %>/socket.io/socket.io.js"></script>'); 
+
+/*
+	Write quarry.io
+ */
+
+document.write('<script src="//<%- hostname %>/quarry.io.container.js"></script>'); 
+
