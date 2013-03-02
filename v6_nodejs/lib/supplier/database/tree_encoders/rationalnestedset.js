@@ -19,13 +19,16 @@
 
 
 /*
-  Quarry.io Rational Nested Set Tree Encoder
+  Rational Nested Set Tree Encoder
   ------------------------------------------
 
-	* Rational Nested Set Tree Encoder for Jquarry
+	* Rational Nested Set Tree Encoder
 	*
 	* This Library is responsible for creating the [Rational Number](http://en.wikipedia.org/wiki/Rational_number)
-	* keys for the nested set algorithm used by the Tree Storage Driver.
+	* keys for creating a nested set tree structure
+	*
+	* The big advantage over normal nested set is that insert speeds are much faster because you do not need to update
+	* other encodings in the database
 	*
 	* The premise is that the left boundary of the [Nested Set Model](http://en.wikipedia.org/wiki/Nested_set_model)
 	* is calculated as a rational number based upon a [Continued Fraction](http://en.wikipedia.org/wiki/Continued_fraction)

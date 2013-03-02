@@ -43,7 +43,7 @@ var path = require('path');
 
   Manage how a single stack is bootloaded onto the network
 
-  The overall infrastructure contains multiple deployments
+  The overall infrastructure contains multiple sta
 
   It is up to the deployment how it hooks into an infrastructure (if it does)
 

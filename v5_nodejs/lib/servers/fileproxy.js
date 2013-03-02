@@ -12,7 +12,7 @@ var request = require('request');
 var eyes = require('eyes');
 var imagechunker_factory = require('./imagechunker');
 var fileprocessor_factory = require('./fileprocessor');
-var _ = require('underscore');
+var _ = require('lodash');
 
 module.exports = factory;
 
@@ -23,7 +23,7 @@ function factory(options){
   options = _.defaults(options, {
     directory:'/tmp/quarryfileproxy',
     baseurl:'/quarry.io/fileproxy',
-    hostname:'dev2.jquarry.com',
+    hostname:'dev.jquarry.com',
     // a raw image chunker that points to itself
     imagechunker:imagechunker_factory()
   })

@@ -57,7 +57,7 @@ function search(search_from, selector){
   }
   // direct parent mode
   else if(selector.splitter=='<'){
-    search_in = search_from.parent();
+    throw new Error('we do not support the parent splitter at the moment');
   }
   // all descendents mode
   else{
