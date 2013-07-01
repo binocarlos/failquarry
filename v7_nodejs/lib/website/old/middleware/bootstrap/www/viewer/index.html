@@ -1,0 +1,13 @@
+
+
+<h4>{{node.title()}}</h4>
+<div class="container">
+
+  <div ng-repeat="node in node.children().containers()" ng-cloak>
+  	<div class="viewer-elem">
+  		<img class="viewer-img" ng-src="/files{{node.icon()}}?size=64" /><br />
+  		{{node.title()}}
+  	</div>
+  </div>
+
+</div>

@@ -1,0 +1,49 @@
+
+
+peache SF SDF SDF SDF s<p>
+<a href="/auth/facebook">facebook</a>
+<hr>
+<a href="/auth/twitter">twitter</a>
+<hr>
+<a href="/auth/logout">logout</a>
+<hr>
+
+PEARS APPLE HELLO
+<script src="/desk/quarry.js"></script>
+
+<script>
+
+$quarry(function(warehouse){
+
+	warehouse('.ghost > *')
+		.map(function(container, mapper){
+
+			var connection = mapper.connect('/test');
+
+			connection({
+				method:'get',
+				query:{
+					test:container.tagname()
+				}
+			}).ship(function(res){
+
+				container.attr('maptest', res.body[0]);
+				mapper.emit(container);
+				mapper.done();
+
+			})
+
+		})
+		.ship(function(results, res){
+			var first = results.first();
+
+			console.dir(res.headers);
+			first.look();
+			console.dir(first.meta());
+		})
+		
+	
+})
+
+
+</script>

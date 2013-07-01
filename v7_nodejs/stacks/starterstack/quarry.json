@@ -1,0 +1,190 @@
+{
+  "config":{
+    "name":"quarry.io Test Stack",
+    "allocation":{
+      "router":1,
+      "web":1,
+      "reception":1,
+      "switchboard":1,
+      "portal":1,
+      "code":1,
+      "contract":1,
+      "supplier":1
+    }
+  },
+  "jobs":[{
+    "department":"web",
+    "websites":[{
+      "name":"Hello Rodders",
+      "hostnames":[
+        "rodney.dev.jquarry.com"
+      ],
+      "document_root":"<%- stack.folder %>/websites/hellorodney/www",
+      "script_root":"<%- stack.folder %>/websites/hellorodney/scripts",
+      "middleware":[
+        {
+          "route":"/api",
+          "name":"API",
+          "module":"quarry.containerapi",          
+          "expect":"containers"
+        },
+        {
+          "route":"/warehouse",
+          "name":"Desk",
+          "module":"quarry.warehouse"
+        },
+        {
+          "route":"/bootstrap",
+          "name":"Bootstrap",
+          "module":"quarry.bootstrap"
+        },
+        {
+          "module":"quarry.www",
+          "imagechunker":true
+        }
+      ]
+    },{
+      "name":"Quarry Desktop",
+      "hostnames":[
+        "dev.jquarry.com"
+      ],
+      "document_root":"<%- stack.folder %>/websites/quarrydesktop/www",
+      "script_root":"<%- stack.folder %>/websites/quarrydesktop/scripts",
+      "middleware":[
+        {
+          "route":"/auth",
+          "name":"Authentication",
+          "module":"quarry.auth",
+          "warehouse":"security:/",
+          "httproutes":{
+            "hostname":"dev.jquarry.com",
+            "success":"/postlogin",
+            "failure":"/"
+          },
+          "providers":{
+            "dropbox":{
+              "key":"8l9t12m1xyyrg1t",
+              "secret":"r4qitqaipise24d"
+            },
+            "google":{
+              "key":"461702529218-4eqt536n7uqjm5ai01vkr90tgt1sv74d.apps.googleusercontent.com",
+              "secret":"4ovR6NwFoMhe1-4BEeST0-DT"
+            },
+            "facebook":{
+              "key":"235139659919776",
+              "secret":"560bdc68d3d03020c709785ec0381a54"
+            },
+            "twitter":{
+              "key":"mienJfG4zeERhg8zZIvvg",
+              "secret":"5z4E48dOVUWv6IuuWwOdsdyew9yuD2XLNsTZG1UcYw"
+            },
+            "github":{
+              "key":"f8a3bd47437055992dfb",
+              "secret":"811a46f1e4c2251918be93d4f2802f11428fe89d"
+            }
+          }
+        },
+        {
+          "route":"/postlogin",
+          "module":"<%- stack.folder %>/websites/quarrydesktop/middleware/postlogin"
+        },
+        {
+          "module":"<%- stack.folder %>/websites/quarrydesktop/middleware/pages"
+        },
+        {
+          "route":"/bin",
+          "module":"quarry.scripts"
+        },
+        {
+          "route":"/dumpsession",
+          "text":"hello",
+          "module":"<%- stack.folder %>/middleware/http/dumpsession"
+        },
+        {
+          "route":"/api",
+          "name":"API",
+          "module":"quarry.containerapi",          
+          "expect":"containers"
+        },
+        {
+          "route":"/files",
+          "name":"API",
+          "module":"quarry.fileapi",          
+          "expect":"containers"
+        },
+        {
+          "route":"/warehouse",
+          "name":"Desk",
+          "module":"quarry.warehouse"
+        },
+        {
+          "route":"/bootstrap",
+          "name":"Bootstrap",
+          "module":"quarry.bootstrap"
+        },
+        {
+          "route":"/icons",
+          "module":"quarry.www",
+          "document_root":"<%- stack.folder %>/icons",
+          "imagechunker":true
+        },
+        {
+          "module":"quarry.www",
+          "imagechunker":true
+        }
+      ]
+    }]
+  },{
+    "department":"warehouse",
+    "suppliers":{
+      "security:/":{
+        "name":"Security",
+        "user_warehouse":"/user",
+        "module":"quarry.security",
+        "collection":"quarry.users"
+      },
+      "/sourcecode":{
+        "name":"Source Code",
+        "module":"quarry.filesystem.local",
+        "location":"<%- stack.folder %>"
+      },
+      "icon:/":{
+        "name":"Source Code",
+        "module":"quarry.filesystem.local",
+        "location":"<%- stack.folder %>/icons/default"
+      },
+      "/test":{
+        "name":"Custom fn",
+        "module":"<%- stack.folder %>/middleware/quarry/test"
+      },
+      "/user":{
+        "name":"User Database",
+        "collection":"quarry.users",
+        "module":"quarry.quarrydb"
+      },
+      "/project":{
+        "name":"Projects",
+        "id":"project",
+        "autocreate":true,
+        "module":"quarry.provider",
+        "supplier":{        
+          "module":"quarry.quarrydb"
+        }
+      },
+      "/api/dropbox":{
+        "name":"Dropbox API",
+        "id":"dropbox",
+        "module":"quarry.filesystem.dropbox"
+      },
+      "/database":{
+        "name":"QuarryDB",
+        "id":"database",
+        "autocreate":true,
+        "module":"quarry.provider",
+        "supplier":{        
+          "module":"quarry.quarrydb"
+        }
+      }
+    }
+  }]
+}

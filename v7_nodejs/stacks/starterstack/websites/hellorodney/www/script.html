@@ -1,0 +1,30 @@
+this is a test of a processed script page
+<hr />
+
+<warehouse find=".ghost > *:tree">
+
+	<h1>Products</h1>
+	<loop selector="product">
+
+		<h3>{{ name }}</h3>
+
+		<ul>
+		<loop selector="caption">
+
+			<li>{{ title }}</li>
+
+		</loop>
+		
+		</ul>
+
+	</loop>
+
+	<h1>Cities</h1>
+	<loop selector="city">
+
+		<h3>{{ name }}</h3>
+
+	</loop>
+
+	
+</warehouse>

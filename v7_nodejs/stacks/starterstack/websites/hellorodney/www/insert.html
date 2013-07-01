@@ -1,0 +1,83 @@
+
+
+peache SF SDF SDF SDF s<p>
+<a href="/auth/facebook">facebook</a>
+<hr>
+<a href="/auth/twitter">twitter</a>
+<hr>
+<a href="/auth/logout">logout</a>
+<hr>
+
+PEARS APPLE HELLO
+<script src="/warehouse/quarry.js"></script>
+
+<script>
+
+$quarry(function(warehouse){
+
+	var productdb = warehouse.connect('/db/products');
+	var citydb = warehouse.connect('/db/cities');
+
+	var productfolder = $quarry.new([
+		'<folder class="shop">',
+		'	<product name="Apple" class="green south">',
+		'		<caption title="Green Apples" />',
+		'		<caption title="Orchard" />',
+		'		<caption title="Cider" />',
+		'		<caption title="Pie" />',
+		'	</product>',
+		'	<product name="Orange" class="citrus">',
+		'		<caption title="Phones" />',
+		'		<caption title="County" />',
+		'		<caption title="Dutch" />',
+		'	</product>',
+		'	<product name="Pear" class="green">',
+		'		<caption title="Perry" />',
+		'		<caption title="Two" />',
+		'		<caption title="Drops" />',
+		'	</product>',
+		'	<product name="Lemon" class="citrus">',
+		'		<caption title="Curd" />',
+		'		<caption title="Rind" />',
+		'	</product>',
+		'</folder>'
+	].join("\n"))
+
+	var cityfolder = $quarry.new([
+		'<folder class="places">',
+		'	<city name="Bristol" class="south" />',
+		'	<city name="London" class="south" />',
+		'	<city name="Liverpool" class="north" />',
+		'	<city name="Manchester" class="north" />',
+		'</folder>'
+	].join("\n"))
+
+	warehouse.merge([
+
+		citydb
+			.append(cityfolder),
+			
+		productdb
+			.append(productfolder)
+
+	]).ship(function(){
+
+		var cityghost = cityfolder.ghost().addClass('ghost');
+		var productghost = productfolder.ghost().addClass('ghost');
+
+		warehouse
+			.append([cityghost, productghost])
+			.ship(function(){
+
+				console.log('-------------------------------------------');
+				console.log('-------------------------------------------');
+				console.log('items inserted!');
+			})
+
+	})
+
+
+})
+
+
+</script>

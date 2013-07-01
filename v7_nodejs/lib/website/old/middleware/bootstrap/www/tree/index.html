@@ -1,0 +1,6 @@
+<div class="treelink">
+	<div class="treetoggle">+ </div><div class="treeicon" style="background:url(/files{{ node.icon() }}?size=16);"></div> {{node.title()}}
+</div>
+<div class="tree">
+    <div ng-repeat="node in node.children().containers()" ng-include="'tree/index.html'"></div>
+</div>

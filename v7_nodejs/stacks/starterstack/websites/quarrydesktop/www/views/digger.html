@@ -1,0 +1,43 @@
+<div class="row-fluid digger" ng-cloak>
+	 <div class="span3" id="tree">
+	   	<tree 
+	   		openfn="digger.openfn(node, done);" 
+	   		loadfn="digger.loadfn(node, done);" 
+	   		openstates="digger.openstates" 
+	   		activecontainer="digger.activecontainer" 
+	   		node="digger.warehouse"></tree>
+	 </div>
+
+	 <div class="span2" id="summary">
+		  <summary 
+			 	node="digger.activecontainer" cancelfn="digger.cancelfn(node);" editfn="digger.editfn(node);" savefn="digger.savefn(node);" selection="digger.selection"></summary>
+	 </div>
+
+	 <div class="span7 quarry-viewer">
+	 	<div class="row-fluid">
+	 		<div class="span12">
+				<div class="row-fluid">
+		      <div class="span12">
+		      	<breadcrumbs node="digger.activecontainer" ancestorfn="digger.ancestorfn(node);" openfn="digger.openfn(node);" />
+						
+		      </div>
+		    </div>
+	 		</div>
+	 	</div>
+	   <div class="row-fluid">
+			  <renderer 
+			   	selection="digger.selection" 
+			   	blueprintfn="digger.blueprintfn(node);" 
+			   	installerfn="digger.installerfn(node);" 
+			   	ancestorfn="digger.ancestorfn(node);" 
+			   	createfn="digger.createfn(node, mode);" 
+			   	renderfn="digger.renderfn(node);" 
+			   	openfn="digger.openfn(node, done);" 
+			   	deletefn="digger.deletefn(done);" 
+			   	savefn="digger.savefn(node, done);" 
+			   	upfn="digger.upfn();" 
+			   	node="digger.activecontainer"></renderer>
+			</div>
+	 </div>
+	 
+</div>

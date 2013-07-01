@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Quarry Digger</title>
+    <meta name="description" content="Quarry Digger">
+    
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+    <style>
+      html,body{
+        padding:0px;
+        margin:0px;
+        width:100%;
+        height:100%;
+        min-height:100%;
+      }
+
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="#">Digger</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div ng-app="quarryApp">
+    <warehouse find=".ghost > *:tree">
+
+  <h1>Products</h1>
+  <loop selector="product">
+
+    <h3>{{ name }}</h3>
+
+    <ul>
+    <loop selector="caption">
+
+      <li>{{ title }}</li>
+
+    </loop>
+    
+    </ul>
+
+  </loop>
+
+  <h1>Cities</h1>
+  <loop selector="city">
+
+    <h3>{{ name }}</h3>
+
+  </loop>
+
+  
+</warehouse>
+  </div>
+</div>
+
+<script src="/warehouse/quarry.js"></script>
+<script src="/bootstrap/quarry.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<style>
+	.tree{
+		margin-left:10px;
+	}
+	.treeicon {
+		width:16px;
+		height:16px;
+		
+		background-position:center center;
+		background-repeat: no-repeat;
+		float:left;
+		margin-top:2px;
+		margin-right:5px;
+	}
+
+	.treetitle{
+		padding-bottom:5px;
+	}
+
+	.treetoggle{
+		width:16px;
+		height:16px;
+		float:left;
+	}
+
+	.viewer-elem{
+		width:100px;
+		height:100px;
+		float:left;
+		text-align:center;
+	}
+
+	.viewer-img{
+		width:64px;
+		height:64px;
+	}
+
+</style>
+
+<div class="row">
+	<div class="span3">
+
+		<tree node="project"></tree>
+		
+	</div>
+	<div class="span9">
+		<div class="row">
+			<div class="span9">
+				<search-bar></search-bar>
+			</div>
+			<div class="span9">
+				<viewer node="active"></viewer>
+			</div>
+		</div>
+	</div>
+</div>

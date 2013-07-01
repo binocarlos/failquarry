@@ -1,0 +1,26 @@
+{
+  "attr":{
+    "name":"quarry.io Stack",
+    "id":"default"
+  },
+  "workers":{
+    "attr":{
+      "heartbeat":1000,
+      "monitor":{
+        "delay": 5000,
+        "freemem": 250000000,
+        "critical1": 0.7,
+        "critical5": 0.7,
+        "critical15": 0.7
+      }
+    }
+  },
+  "api":{
+    "attr":{},
+    "endpoints":[]
+  },
+  "webserver":{
+    "attr":{},
+    "virtualhosts":[]
+  }
+}

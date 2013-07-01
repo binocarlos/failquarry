@@ -1,0 +1,16 @@
+      /*
+      "/sourcecode":{
+        "name":"Source Code",
+        "module":"quarry.filesystem.local",
+        "location":"<%- stack.folder %>"
+      },
+      "icons:/":{
+        "name":"Source Code",
+        "module":"quarry.filesystem.local",
+        "location":"<%- stack.folder %>/icons"
+      },
+      "/test":{
+        "name":"Custom fn",
+        "module":"<%- stack.folder %>/middleware/quarry/test"
+      },
+      */

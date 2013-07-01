@@ -1,0 +1,115 @@
+1. reception front - check the routing key
+decide if request goes into holdingbay or route direct
+
+2. holding bay + contract resolver + switchboard feedback loop
+for branching
+
+3. script + map + reduce + html servers
+
+4. supplier portals + portal server
+
+5. HTTP suppliers
+
+6. Authentication Server
+
+7. Supplier authorization based on auth selector
+(supplier level + container level)
+
+8. operational transformation portals
+
+9. Cool Suppliers
+
+10. GUI
+
+---------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+Todo
+
+YAML Config
+-----------
+
+Have the config in container format:
+
+system:
+	name: Test System
+	stacks:
+		test:
+			name: Test Stack
+			
+[{
+	meta:{
+		tagname:'system'
+	},
+	attr:{
+		// the sytem config here (like database)
+	},
+	children:[{
+		meta:{
+			tagname:'stack'
+		},
+		attr:{
+			name:'Test Stack'
+		},
+		children:[{
+			meta:{
+				tagname:'service'
+			}
+		}]
+	}]
+}]
+Links
+-----
+
+Every model has a global system unique id.
+
+The same quarryid's data can exists in multiple places at the same time.
+
+The links array of each model contains the routes to each supplier that must be updated.
+
+When a POST/PUT or DELETE goes via a contract resolver - it will look the the links
+of the thing being modified and duplicate out a request for each of those
+
+there is always a primary route stamped which is the supplier the data came from
+
+Worker Radio
+------------
+
+Sack off all the bollox with stacks and collections and blah
+
+Just have 
+
+	network 
+
+		-> users (roots)
+
+		-> system
+
+			-> infrastructure
+				->instance
+
+			-> collection
+				-> stack
+					-> service
+					-> worker (<- instance)
+						-> node (<- service)
+
+The workers start off blank.
+
+You boot nodes onto workers via radio.
+
+You can do anything with workers via radio.
+
+You can set workers classnames - arrange them however, basically use a quarrydb to manage the workers.
+
+Loading nodes onto workers that are selecting with CSS selectors.
+
+A node can be communicated to also.

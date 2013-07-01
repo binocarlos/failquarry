@@ -1,0 +1,229 @@
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+/*
+
+	AUTH
+	
+*/
+
+.quarry-auth .icon {
+	width:16px;
+	height:16px;
+	margin-right:5px;
+	margin-bottom:2px;
+	box-shadow: 1px 1px 2px #ccc;
+}
+
+.quarry-auth .sectiontitle {
+	margin-left:10px;
+	font-size: 0.8em;
+}
+
+.quarry-auth .project-button {
+	margin-right:10px;
+}
+
+
+/*
+
+	TREE
+	
+*/
+.quarry-tree {
+	margin-left:15px;
+}
+
+.quarry-tree .icon {
+	width:16px;
+	height:16px;
+	
+	background-position:center center;
+	background-repeat: no-repeat;
+	float:left;
+	margin-top:2px;
+	margin-right:5px;
+}
+
+.quarry-tree .treetitle{
+	margin-bottom:3px;
+	padding:2px;
+	cursor: pointer;
+}
+
+.quarry-tree .treeactive{
+	padding:1px;
+	border:1px dashed #ccccff;
+	background-color:#f5f5ff;
+}
+
+.quarry-tree .treetoggle{
+	width:16px;
+	height:16px;
+	text-align:center;
+	float:left;
+	cursor: pointer;
+}
+
+/*
+
+	VIEWER
+	
+*/
+.quarry-viewer{
+	padding-bottom:200px;
+}
+.quarry-viewer .container {
+	cursor:pointer;
+	width:85px;
+	height:85px;
+	float:left;
+	text-align:center;
+	padding:5px;
+	margin:1px;
+}
+.quarry-viewer .container.selected{
+	margin:0px;
+	border:1px dashed #ccccff;
+	background-color:#f5f5ff;
+}
+
+.quarry-viewer .img {
+	width:64px;
+	height:64px;
+}
+
+.quarry-viewer .heading {
+	margin-top:0px;
+}
+
+
+.quarry-viewer .iconcontainerbox {
+	cursor:pointer;
+	width:40px;
+	height:40px;
+	float:left;
+	text-align:center;
+	padding:5px;
+	margin:1px;
+}
+
+/*
+
+	NAVBAR
+	
+*/
+
+.input-append .btn {
+    float: none!important;
+    margin-left: 0!important;
+}
+
+/*
+
+	DIGGER
+	
+*/
+
+
+/*
+
+	SUMMARY
+	
+*/
+
+.quarry-summary{
+	
+}
+
+.quarry-summary .icon{
+	margin:5px;
+	float:right;
+
+}
+
+.quarry-summary .title{
+	text-decoration: underline;
+}
+
+.quarry-summary .link{
+	cursor: pointer;
+}
+
+.quarry-summary .tiny{
+	font-size: 0.6em;
+}
+
+/*
+
+	Container drop down menu hack
+	
+*/
+
+.quarrydropdown-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 20px;
+  color: #333333;
+  white-space: nowrap;
+}
+
+.quarrydropdown-menu > li > a:hover,
+.quarrydropdown-menu > li > a:focus,
+.quarrydropdown-submenu:hover > a,
+.quarrydropdown-submenu:focus > a {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #0081c2;
+  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
+  background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+}
+
+.quarrydropdown-menu > .active > a,
+.quarrydropdown-menu > .active > a:hover,
+.quarrydropdown-menu > .active > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #0081c2;
+  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
+  background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+  background-repeat: repeat-x;
+  outline: 0;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+}
+
+.quarrydropdown-menu > .disabled > a,
+.quarrydropdown-menu > .disabled > a:hover,
+.quarrydropdown-menu > .disabled > a:focus {
+  color: #999999;
+}
+
+.quarrydropdown-menu > .disabled > a:hover,
+.quarrydropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  cursor: default;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.nav-tabs a{
+	font-size:0.85em;
+}
+
+
+.newfieldgroup{
+	margin-top:20px;
+	margin-bottom:20px;
+}

@@ -1,0 +1,22 @@
+
+<script src="/js/lodash.js"></script>
+<script src="/warehouse/quarry.js"></script>
+
+<script>
+
+var warehouse = $quarry.connect('/project/a4ae4a');
+
+console.dir(warehouse.toJSON());
+console.log('-------------------------------------------');
+console.dir(warehouse('> *'));
+
+warehouse('>*').ship(function(results){
+  results.look();
+
+  console.log('-------------------------------------------');
+  console.log('-------------------------------------------');
+  console.dir(results.toJSON());
+})
+
+
+</script>
